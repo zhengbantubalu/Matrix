@@ -1,5 +1,4 @@
-#include <stdlib.h>
-#include <stdbool.h>
+#include "MatHead.h"
 
 /**
  * @brief   矩阵初等变换 – 对换变换

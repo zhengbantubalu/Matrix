@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <math.h>
-#include "MatUtil.h"
+#include "MatHead.h"
 
 /**
  * @brief   矩阵工具 – 矩阵初始化
@@ -48,11 +44,13 @@ void matFree(double **matrix, int numRows)
  * @param   matrix      矩阵地址
  * @param   numRows     矩阵行数
  * @param   numCols     矩阵列数
+ * @return  SUCCESS – 输入成功
+ * @return  BREAK – 输入中断
  * @note    输入矩阵matrix
  */
-void matEnIn(double **matrix, int numRows, int numCols)
+int matEnIn(double **matrix, int numRows, int numCols)
 {
-    matLoIn(matrix, 0, numRows - 1, 0, numCols - 1);
+    return matLoIn(matrix, 0, numRows - 1, 0, numCols - 1);
 }
 
 /**
@@ -62,18 +60,27 @@ void matEnIn(double **matrix, int numRows, int numCols)
  * @param   rowEnd      终止行
  * @param   colStart    起始列
  * @param   colEnd      终止列
+ * @return  SUCCESS – 输入成功
+ * @return  BREAK – 输入中断
  * @note    输入矩阵matrix的指定范围
  */
-void matLoIn(double **matrix, int rowStart, int rowEnd, int colStart, int colEnd)
+int matLoIn(double **matrix, int rowStart, int rowEnd, int colStart, int colEnd)
 {
     int i = 0, j = 0;
+    char ch;
     for (i = rowStart; i <= rowEnd; i++)
     {
         for (j = colStart; j <= colEnd; j++)
         {
+            ungetc(ch = getchar(), stdin);
+            if ((ch < '0' || ch > '9') && ch != ' ' && ch != '\n' && ch != '\t')
+            {
+                return BREAK;
+            }
             scanf("%lf", &matrix[i][j]);
         }
     }
+    return SUCCESS;
 }
 
 /**

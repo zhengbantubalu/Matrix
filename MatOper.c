@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <math.h>
-#include "MatOper.h"
-#include "MatRowOper.h"
-#include "MatUtil.h"
+#include "MatHead.h"
 
 /**
  * @brief   ¾ØÕóÔËËã ¨C ¾ØÕó¼Ó·¨
