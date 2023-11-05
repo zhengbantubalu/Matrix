@@ -55,6 +55,16 @@ int main(void)
             matInverse(matrixOut, matrixOut, numRows);
             printf("\n逆矩阵的逆矩阵:\n");
             matEnOut(matrixOut, numRows, numRows);
+            printf("逆的逆与原矩阵相等: ");
+            switch (matEnEqual(matrixIn, matrixOut, numRows, numRows))
+            {
+            case EQUAL:
+                printf("TRUE\n");
+                break;
+            case UNEQUAL:
+                printf("FALSE\n");
+                break;
+            }
             break;
         case SINGULAR:
             printf("\n矩阵不可逆\n");

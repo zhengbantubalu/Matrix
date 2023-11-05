@@ -131,14 +131,10 @@ void matTrans(double **matSource, double **matTarget, int numRows, int numCols)
 int matInverse(double **matSource, double **matTarget, int numRows)
 {
     int i = 0, j = 0;
-    double **matOper = NULL, **matE = NULL;
+    double **matOper = NULL;
     matOper = matInit(numRows, 2 * numRows);
     matLoCopy(matSource, matOper, 0, numRows - 1, 0, numRows - 1, 0, numRows - 1, 0, numRows - 1);
-    matE = matInit(numRows, numRows);
-    matAssignE(matE, numRows);
-    matLoCopy(matE, matOper, 0, numRows - 1, 0, numRows - 1, 0, numRows - 1, numRows, 2 * numRows - 1);
-    matFree(matE, numRows);
-    matE = NULL;
+    matLoAssignE(matOper, 0, numRows - 1, numRows, 2 * numRows - 1);
     if (fabs(matEchelon(matOper, matOper, numRows, 2 * numRows)) < ZEROTHRES)
     {
         return SINGULAR;

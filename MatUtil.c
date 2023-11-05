@@ -155,8 +155,8 @@ void matEnCopy(double **matSource, double **matTarget, int numRows, int numCols)
  * @param   colTarStart 目标矩阵起始列
  * @param   colTarEnd   目标矩阵终止列
  * @return  SUCCESS – 复制成功
- * @return  ERROR – 行列数不匹配
- * @note    将矩阵matSource的指定范围复制到矩阵matTarget的指定范围
+ * @return  ERROR – 范围行列数不相等
+ * @note    将矩阵matSource的指定范围复制到矩阵matTarget的指定范围，两矩阵范围行列数须相等
  */
 int matLoCopy(double **matSource, double **matTarget,
               int rowSouStart, int rowSouEnd, int rowTarStart, int rowTarEnd,
@@ -179,19 +179,95 @@ int matLoCopy(double **matSource, double **matTarget,
 }
 
 /**
- * @brief   矩阵工具 – 赋值为单位矩阵
+ * @brief   矩阵工具 – 矩阵整体相等判断
+ * @param   matrix1     矩阵1地址
+ * @param   matrix2     矩阵2地址
+ * @param   numRows     矩阵行数
+ * @param   numCols     矩阵列数
+ * @return  EQUAL – 两矩阵相等
+ * @return  UNEQUAL – 两矩阵不相等
+ * @note    判断矩阵matrix1与矩阵matrix2是否相等，两矩阵行列数须相等
+ */
+int matEnEqual(double **matrix1, double **matrix2, int numRows, int numCols)
+{
+    return matLoEqual(matrix1, matrix2, 0, numRows - 1, 0, numRows - 1, 0, numCols - 1, 0, numCols - 1);
+}
+
+/**
+ * @brief   矩阵工具 – 矩阵局部相等判断
+ * @param   matrix1     矩阵1地址
+ * @param   matrix2     矩阵2地址
+ * @param   rowStart1   矩阵1起始行
+ * @param   rowEnd1     矩阵1终止行
+ * @param   rowStart2   矩阵2起始行
+ * @param   rowEnd2     矩阵2终止行
+ * @param   colStart1   矩阵1起始列
+ * @param   colEnd1     矩阵1终止列
+ * @param   colStart2   矩阵2起始列
+ * @param   colEnd2     矩阵2终止列
+ * @return  EQUAL – 两矩阵范围相等
+ * @return  UNEQUAL – 两矩阵范围不相等
+ * @return  ERROR – 范围行列数不相等
+ * @note    判断矩阵matrix1与矩阵matrix2指定范围是否相等，两矩阵范围行列数须相等
+ */
+int matLoEqual(double **matrix1, double **matrix2,
+               int rowStart1, int rowEnd1, int rowStart2, int rowEnd2,
+               int colStart1, int colEnd1, int colStart2, int colEnd2)
+{
+    int i = 0, j = 0;
+    if (rowEnd1 - rowStart1 != rowEnd2 - rowStart2 ||
+        colEnd1 - colStart1 != colEnd2 - colStart2)
+    {
+        return ERROR;
+    }
+    for (i = 0; i <= rowEnd1 - rowStart1; i++)
+    {
+        for (j = 0; j <= colEnd1 - colStart1; j++)
+        {
+            if ((matrix1[i + rowStart1][j + colStart1] - matrix2[i + rowStart2][j + colStart2]) > ZEROTHRES)
+            {
+                return UNEQUAL;
+            }
+        }
+    }
+    return EQUAL;
+}
+
+/**
+ * @brief   矩阵工具 – 整体赋值为单位矩阵
  * @param   matrix      矩阵地址
  * @param   numRows     矩阵行数
  * @note    将矩阵matrix赋值为单位矩阵，矩阵行列数须相等
  */
-void matAssignE(double **matrix, int numRows)
+void matEnAssignE(double **matrix, int numRows)
+{
+    matLoAssignE(matrix, 0, numRows - 1, 0, numRows - 1);
+}
+
+/**
+ * @brief   矩阵工具 – 局部赋值为单位矩阵
+ * @param   matrix      矩阵地址
+ * @param   rowStart    起始行
+ * @param   rowEnd      终止行
+ * @param   colStart    起始列
+ * @param   colEnd      终止列
+ * @return  SUCCESS – 赋值成功
+ * @return  ERROR – 范围行列数不相等
+ * @note    将矩阵matrix的指定范围赋值为单位矩阵，范围行列数须相等
+ */
+int matLoAssignE(double **matrix, int rowStart, int rowEnd, int colStart, int colEnd)
 {
     int i = 0, j = 0;
-    for (i = 0; i < numRows; i++)
+    if (rowEnd - rowStart != colEnd - colStart)
     {
-        for (j = 0; j < numRows; j++)
+        return ERROR;
+    }
+    for (i = rowStart; i <= rowEnd; i++)
+    {
+        for (j = colStart; j <= colEnd; j++)
         {
-            matrix[i][j] = i == j ? 1 : 0;
+            matrix[i][j] = (i - rowStart) == (j - colStart) ? 1 : 0;
         }
     }
+    return SUCCESS;
 }
