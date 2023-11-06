@@ -11,7 +11,7 @@ void matStdTest(double **matrix, int numRows, int numCols)
     double **matrixOut = NULL, **matrixMul = NULL, **matrixTrans = NULL;
     matrixOut = matInit(numRows, numCols);
     matEchelon(matrix, matrixOut, numRows, numCols);
-    printf("\nrank=%d\n", matRank(matrixOut, numRows, numCols, true));
+    printf("rank=%d\n", matRank(matrixOut, numRows, numCols, true));
     if (numRows == numCols)
     {
         printf("\ndet=%.3lf\n", matDet(matrix, numRows));
@@ -70,5 +70,4 @@ void matStdTest(double **matrix, int numRows, int numCols)
     matFree(matrixTrans, numCols);
     matrixOut = NULL;
     matrixTrans = NULL;
-    putchar('\n');
 }
