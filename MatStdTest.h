@@ -1,1 +1,0 @@
-void matStdTest(double **matrix, int numRows, int numCols);
