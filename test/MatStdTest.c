@@ -1,13 +1,12 @@
-#include "..\include\MatStdTest.h"
+#include ".\include\MatStdTest.h"
 #include "..\include\MatOper.h"
-#include "..\include\MatEleTrans.h"
 #include "..\include\MatUtil.h"
 #include "..\include\MatIO.h"
 #include "..\include\MatConst.h"
 #include <stdio.h>
 
 /**
- * @brief   ¾ØÕóÔËËã±ê×¼²âÊÔ
+ * @brief   ²âÊÔ ¨C ¾ØÕóÔËËã±ê×¼²âÊÔ
  * @param   matrix      ¾ØÕó
  */
 void matStdTest(Mat matrix)

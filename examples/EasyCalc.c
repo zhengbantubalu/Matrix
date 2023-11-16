@@ -1,4 +1,5 @@
-#include "..\include\MatStdTest.h"
+#include ".\include\EasyCalc.h"
+#include "..\test\include\MatStdTest.h"
 #include "..\include\MatOper.h"
 #include "..\include\MatUtil.h"
 #include "..\include\MatIO.h"
@@ -28,9 +29,17 @@
 #define MULTI 12
 #define CLEAR 13
 
-void pause(void);
+void pause(void)
+{
+    putchar('\n');
+    system("pause");
+    putchar('\n');
+}
 
-int main(void)
+/**
+ * @brief   Ê¾Àý ¨C ¼òÒ×¾ØÕó¼ÆËãÆ÷
+ */
+void easyCalc(void)
 {
     int state = START;
     int choice = 0;
@@ -363,12 +372,4 @@ int main(void)
             break;
         }
     }
-    return 0;
-}
-
-void pause(void)
-{
-    putchar('\n');
-    system("pause");
-    putchar('\n');
 }
