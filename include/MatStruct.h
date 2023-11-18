@@ -1,12 +1,17 @@
 #ifndef _MATSTRUCT_H_
 #define _MATSTRUCT_H_
 
-struct mat
+/**
+ * @brief   矩阵结构体
+ * @note    data – 指向矩阵数据的指针
+ * @note    numRows – 矩阵行数
+ * @note    numCols – 矩阵列数
+ */
+typedef struct mat
 {
-    double **address;
+    double **data;
     int numRows;
     int numCols;
-};
-typedef struct mat Mat;
+} Mat;
 
 #endif

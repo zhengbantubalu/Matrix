@@ -5,10 +5,6 @@
 #include "..\include\MatConst.h"
 #include <stdio.h>
 
-/**
- * @brief   ²âÊÔ ¨C ¾ØÕóÔËËã±ê×¼²âÊÔ
- * @param   matrix      ¾ØÕó
- */
 void matStdTest(Mat matrix)
 {
     Mat matOut, matTra, matMul;
@@ -34,7 +30,7 @@ void matStdTest(Mat matrix)
     matOutput(matTra);
     if (matrix.numRows == matrix.numCols)
     {
-        matAdd(matrix, matTra, matOut);
+        matData(matrix, matTra, matOut);
         printf("\nÔ­¾ØÕó¼Ó×ªÖÃ¾ØÕó:\n");
         matOutput(matOut);
         matSub(matrix, matTra, matOut);

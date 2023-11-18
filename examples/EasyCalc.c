@@ -36,9 +36,6 @@ void pause(void)
     putchar('\n');
 }
 
-/**
- * @brief   Ê¾Àý ¨C ¼òÒ×¾ØÕó¼ÆËãÆ÷
- */
 void easyCalc(void)
 {
     int state = START;
@@ -201,7 +198,7 @@ void easyCalc(void)
                 switch (matInput(matemp))
                 {
                 case SUCCESS:
-                    matAdd(matrix, matemp, matOut);
+                    matData(matrix, matemp, matOut);
                     printf("\nA+B=\n");
                     matOutput(matOut);
                     break;
