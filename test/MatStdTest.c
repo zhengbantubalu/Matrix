@@ -2,8 +2,10 @@
 #include "..\include\MatOper.h"
 #include "..\include\MatUtil.h"
 #include "..\include\MatIO.h"
+#include "..\include\MatStruct.h"
 #include "..\include\MatConst.h"
 #include <stdio.h>
+#include <stdbool.h>
 
 void matStdTest(Mat matrix)
 {

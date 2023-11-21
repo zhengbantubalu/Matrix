@@ -1,12 +1,10 @@
 #include ".\include\EasyCalc.h"
-#include "..\test\include\MatStdTest.h"
 #include "..\include\MatOper.h"
 #include "..\include\MatUtil.h"
 #include "..\include\MatIO.h"
 #include "..\include\MatStruct.h"
 #include "..\include\MatConst.h"
 #include <stdio.h>
-#include <stdlib.h>
 #include <stdbool.h>
 
 #define START 0
@@ -15,19 +13,18 @@
 #define FREE 3
 #define END 4
 
-#define STDTEST 1
-#define RANK 2
-#define DETER 3
-#define ECHE 4
-#define REDECHE 5
-#define TRANS 6
-#define ADJO 7
-#define INVER 8
-#define ADD 9
-#define SUB 10
-#define SCAMUL 11
-#define MULTI 12
-#define CLEAR 13
+#define RANK 1
+#define DETER 2
+#define ECHE 3
+#define REDECHE 4
+#define TRANS 5
+#define ADJO 6
+#define INVER 7
+#define ADD 8
+#define SUB 9
+#define SCAMUL 10
+#define MULTI 11
+#define CLEAR 12
 
 void pause(void)
 {
@@ -45,6 +42,7 @@ void easyCalc(void)
     int numRows = 0, numCols = 0;
     int rank = 0;
     double det = 0, multer = 0;
+    printf("简易矩阵计算器\n\n");
     while (state != END)
     {
         switch (state)
@@ -102,21 +100,16 @@ void easyCalc(void)
             fflush(stdin);
             break;
         case SELECT:
-            printf("请输入选项:\n1.矩阵运算标准测试  2.求矩阵的秩        3.求矩阵的行列式\n");
-            printf("4.求行阶梯形矩阵    5.求行最简形矩阵    6.求转置矩阵\n");
-            printf("7.求伴随矩阵        8.求逆矩阵          9.矩阵加法\n");
-            printf("10.矩阵减法         11.矩阵数乘         12.矩阵乘法\n");
-            printf("13.清除矩阵\n\n");
+            printf("请输入选项:\n1. 求矩阵的秩       2. 求矩阵的行列式   3. 求行阶梯形矩阵\n");
+            printf("4. 求行最简形矩阵   5. 求转置矩阵       6. 求伴随矩阵\n");
+            printf("7. 求逆矩阵         8. 矩阵加法         9. 矩阵减法\n");
+            printf("10.矩阵数乘         11.矩阵乘法         12.清除矩阵\n\n");
             choice = 0;
             scanf("%d", &choice);
             fflush(stdin);
             putchar('\n');
             switch (choice)
             {
-            case STDTEST:
-                matStdTest(matrix);
-                pause();
-                break;
             case RANK:
                 matRank(matrix, false, &rank);
                 printf("rank(A)=%d\n", rank);

@@ -17,7 +17,7 @@ int matInLocal(double **matData, int rowStart, int rowEnd, int colStart, int col
         for (j = colStart; j <= colEnd; j++)
         {
             ungetc(ch = getchar(), stdin);
-            if ((ch < '0' || ch > '9') && ch != ' ' && ch != '\n' && ch != '\t')
+            if ((ch < '0' || ch > '9') && ch != ' ' && ch != '-' && ch != '\n' && ch != '\t')
             {
                 return BREAK;
             }
@@ -39,24 +39,25 @@ void matOutLocal(double **matData, int rowStart, int rowEnd, int colStart, int c
     {
         for (j = colStart; j <= colEnd; j++)
         {
-            if (fabs(matData[i][j] - (int)matData[i][j]) < ZEROTHRES ||
-                fabs(matData[i][j] - (int)matData[i][j] + 1) < ZEROTHRES ||
-                fabs(matData[i][j] - (int)matData[i][j] - 1) < ZEROTHRES)
-            {
-                if (fabs(matData[i][j]) < 0.001)
-                {
-                    printf("%6d ", 0);
-                }
-                else
-                {
-                    printf("%6.0lf ", matData[i][j]);
-                }
-            }
-            else
-            {
-                printf("%6.3lf ", matData[i][j]);
-            }
+            prtDouble(matData[i][j], PRECISION, WIDTH);
+            putchar(' ');
         }
         putchar('\n');
     }
+}
+
+void prtDouble(double value, int precision, int width)
+{
+    char format[20];
+    if (fabs(value - (int)value) < ZEROTHRES ||
+        fabs(value - (int)value + 1) < ZEROTHRES ||
+        fabs(value - (int)value - 1) < ZEROTHRES)
+    {
+        sprintf(format, "%%%d.0lf", width);
+    }
+    else
+    {
+        sprintf(format, "%%%d.%dlf", width, precision);
+    }
+    printf(format, fabs(value));
 }
