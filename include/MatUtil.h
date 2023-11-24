@@ -46,11 +46,11 @@ void matSetELocal(double **matData, int rowStart, int rowEnd, int colStart, int 
 /**
  * @brief   矩阵工具 – 数组赋值矩阵
  * @param   matrix      矩阵
- * @param   arr         指向数组首元素的指针
+ * @param   arr         指向数组首元素的指针，数组元素须为double类型
  * @param   sizeofArr   数组所占空间，请传入sizeof(arr)，arr是数组名
  * @return  SUCCESS – 赋值成功
  * @return  ERROR – 数组与矩阵元素数不相等
- * @note    将一维数组以从左往右，从上往下的顺序赋值给矩阵，数组与矩阵元素数须相等
+ * @note    将一维double数组以从左往右，从上往下的顺序赋值给矩阵，数组与矩阵元素数须相等
  */
 int matSetArr(Mat matrix, double *arr, int sizeofArr);
 

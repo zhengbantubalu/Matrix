@@ -86,7 +86,7 @@ void maxInd(void)
                     }
                     if (fabs(fabs(matrix.data[k][i]) - 1) > ZEROTHRES)
                     {
-                        prtDouble(matrix.data[k][i], PRECISION, 0);
+                        prtDouble(matrix.data[k][i], PRECISION, 0, true);
                         putchar(' ');
                     }
                     printf("a%d", pivot[k] + 1);

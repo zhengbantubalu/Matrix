@@ -112,14 +112,16 @@ void easyCalc(void)
             {
             case RANK:
                 matRank(matrix, false, &rank);
-                printf("rank(A)=%d\n", rank);
+                printf("rank(A) = %d\n", rank);
                 pause();
                 break;
             case DETER:
                 switch (matDeter(matrix, &det))
                 {
                 case SUCCESS:
-                    printf("det(A)=%.3lf\n", det);
+                    printf("det(A) = ");
+                    prtDouble(det, PRECISION, 0, false);
+                    putchar('\n');
                     break;
                 case ERROR:
                     printf("只有方阵可以求行列式\n");
@@ -130,7 +132,7 @@ void easyCalc(void)
                 matInit(&matOut, matrix.numRows, matrix.numCols);
                 matEche(matrix, matOut, NULL);
                 printf("A的行阶梯形矩阵:\n");
-                matOutput(matOut);
+                matOutput(matOut, PRECISION, WIDTH);
                 matFree(&matOut);
                 pause();
                 break;
@@ -138,7 +140,7 @@ void easyCalc(void)
                 matInit(&matOut, matrix.numRows, matrix.numCols);
                 matRedEche(matrix, matOut, false);
                 printf("A的行最简形矩阵:\n");
-                matOutput(matOut);
+                matOutput(matOut, PRECISION, WIDTH);
                 matFree(&matOut);
                 pause();
                 break;
@@ -146,7 +148,7 @@ void easyCalc(void)
                 matInit(&matOut, matrix.numCols, matrix.numRows);
                 matTrans(matrix, matOut);
                 printf("A的转置矩阵:\n");
-                matOutput(matOut);
+                matOutput(matOut, PRECISION, WIDTH);
                 matFree(&matOut);
                 pause();
                 break;
@@ -156,7 +158,7 @@ void easyCalc(void)
                 {
                 case SUCCESS:
                     printf("A的伴随矩阵:\n");
-                    matOutput(matOut);
+                    matOutput(matOut, PRECISION, WIDTH);
                     break;
                 case ERROR:
                     printf("只有方阵可以求伴随矩阵\n");
@@ -171,7 +173,7 @@ void easyCalc(void)
                 {
                 case SUCCESS:
                     printf("A的逆矩阵:\n");
-                    matOutput(matOut);
+                    matOutput(matOut, PRECISION, WIDTH);
                     break;
                 case SINGULAR:
                     printf("矩阵不可逆\n");
@@ -192,8 +194,8 @@ void easyCalc(void)
                 {
                 case SUCCESS:
                     matData(matrix, matemp, matOut);
-                    printf("\nA+B=\n");
-                    matOutput(matOut);
+                    printf("\nA + B =\n");
+                    matOutput(matOut, PRECISION, WIDTH);
                     break;
                 case BREAK:
                     printf("\n输入中断\n");
@@ -213,7 +215,7 @@ void easyCalc(void)
                 {
                 case SUCCESS:
                     fflush(stdin);
-                    printf("\n请输入选项:\n1.A-B  2.B-A\n\n");
+                    printf("\n请输入选项:\n1.A - B    2.B - A\n\n");
                     choice = 0;
                     scanf("%d", &choice);
                     fflush(stdin);
@@ -222,13 +224,13 @@ void easyCalc(void)
                     {
                     case 1:
                         matSub(matrix, matemp, matOut);
-                        printf("A-B=\n");
-                        matOutput(matOut);
+                        printf("A - B =\n");
+                        matOutput(matOut, PRECISION, WIDTH);
                         break;
                     case 2:
                         matSub(matemp, matrix, matOut);
-                        printf("B-A=\n");
-                        matOutput(matOut);
+                        printf("B - A =\n");
+                        matOutput(matOut, PRECISION, WIDTH);
                         break;
                     default:
                         printf("选项不存在\n");
@@ -249,8 +251,10 @@ void easyCalc(void)
                 if (scanf("%lf", &multer) == 1)
                 {
                     matScaMul(matrix, matOut, multer);
-                    printf("\nA*%.3lf=\n", multer);
-                    matOutput(matOut);
+                    printf("\nA * ");
+                    prtDouble(multer, PRECISION, 0, false);
+                    printf(" =\n");
+                    matOutput(matOut, PRECISION, WIDTH);
                 }
                 else
                 {
@@ -261,7 +265,7 @@ void easyCalc(void)
                 pause();
                 break;
             case MULTI:
-                printf("请输入选项:\n1.A*B  2.B*A\n\n");
+                printf("请输入选项:\n1.A * B    2.B * A\n\n");
                 scanf("%d", &choice);
                 fflush(stdin);
                 putchar('\n');
@@ -292,8 +296,8 @@ void easyCalc(void)
                         {
                         case SUCCESS:
                             matMulti(matrix, matemp, matOut);
-                            printf("\nA*B=\n");
-                            matOutput(matOut);
+                            printf("\nA * B =\n");
+                            matOutput(matOut, PRECISION, WIDTH);
                             break;
                         case BREAK:
                             printf("\n输入中断\n");
@@ -330,8 +334,8 @@ void easyCalc(void)
                         {
                         case SUCCESS:
                             matMulti(matemp, matrix, matOut);
-                            printf("\nB*A=\n");
-                            matOutput(matOut);
+                            printf("\nB * A =\n");
+                            matOutput(matOut, PRECISION, WIDTH);
                             break;
                         case BREAK:
                             printf("\n输入中断\n");

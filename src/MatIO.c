@@ -27,37 +27,42 @@ int matInLocal(double **matData, int rowStart, int rowEnd, int colStart, int col
     return SUCCESS;
 }
 
-void matOutput(Mat matrix)
+void matOutput(Mat matrix, int precision, int width)
 {
-    matOutLocal(matrix.data, 0, matrix.numRows - 1, 0, matrix.numCols - 1);
+    matOutLocal(matrix.data, 0, matrix.numRows - 1, 0, matrix.numCols - 1, precision, width);
 }
 
-void matOutLocal(double **matData, int rowStart, int rowEnd, int colStart, int colEnd)
+void matOutLocal(double **matData, int rowStart, int rowEnd, int colStart, int colEnd,
+                 int precision, int width)
 {
     int i = 0, j = 0;
     for (i = rowStart; i <= rowEnd; i++)
     {
         for (j = colStart; j <= colEnd; j++)
         {
-            prtDouble(matData[i][j], PRECISION, WIDTH);
+            prtDouble(matData[i][j], precision, width, false);
             putchar(' ');
         }
         putchar('\n');
     }
 }
 
-void prtDouble(double value, int precision, int width)
+void prtDouble(double value, int precision, int width, bool isAbs)
 {
     char format[20];
     if (fabs(value - (int)value) < ZEROTHRES ||
         fabs(value - (int)value + 1) < ZEROTHRES ||
         fabs(value - (int)value - 1) < ZEROTHRES)
     {
+        if (fabs(value - 0) < ZEROTHRES)
+        {
+            value = fabs(value);
+        }
         sprintf(format, "%%%d.0lf", width);
     }
     else
     {
         sprintf(format, "%%%d.%dlf", width, precision);
     }
-    printf(format, fabs(value));
+    printf(format, isAbs ? fabs(value) : value);
 }
