@@ -2,7 +2,7 @@
 #define _EASYCALC_H_
 
 /**
- * @brief   Ê¾Àı ¨C ¼òÒ×¾ØÕó¼ÆËãÆ÷
+ * @brief   ç¤ºä¾‹ â€“ ç®€æ˜“çŸ©é˜µè®¡ç®—å™¨
  */
 void easyCalc(void);
 

@@ -5,57 +5,57 @@
 #include <stdbool.h>
 
 /**
- * @brief   ¾ØÕóIO ¨C ¾ØÕóÊäÈë
- * @param   matrix      ¾ØÕó
- * @return  SUCCESS ¨C ÊäÈë³É¹¦
- * @return  BREAK ¨C ÊäÈëÖĞ¶Ï
- * @note    ÊäÈë¾ØÕómatrix
+ * @brief   çŸ©é˜µIO â€“ çŸ©é˜µè¾“å…¥
+ * @param   matrix      çŸ©é˜µ
+ * @return  SUCCESS â€“ è¾“å…¥æˆåŠŸ
+ * @return  BREAK â€“ è¾“å…¥ä¸­æ–­
+ * @note    è¾“å…¥çŸ©é˜µmatrix
  */
 int matInput(Mat matrix);
 
 /**
- * @brief   ¾ØÕóIO ¨C ¾ØÕó¾Ö²¿ÊäÈë
- * @param   matData     Ö¸Ïò¾ØÕóÊı¾İµÄÖ¸Õë
- * @param   rowStart    ÆğÊ¼ĞĞ
- * @param   rowEnd      ÖÕÖ¹ĞĞ
- * @param   colStart    ÆğÊ¼ÁĞ
- * @param   colEnd      ÖÕÖ¹ÁĞ
- * @return  SUCCESS ¨C ÊäÈë³É¹¦
- * @return  BREAK ¨C ÊäÈëÖĞ¶Ï
- * @note    ÊäÈë¾ØÕóµÄÖ¸¶¨·¶Î§
+ * @brief   çŸ©é˜µIO â€“ çŸ©é˜µå±€éƒ¨è¾“å…¥
+ * @param   matData     æŒ‡å‘çŸ©é˜µæ•°æ®çš„æŒ‡é’ˆ
+ * @param   rowStart    èµ·å§‹è¡Œ
+ * @param   rowEnd      ç»ˆæ­¢è¡Œ
+ * @param   colStart    èµ·å§‹åˆ—
+ * @param   colEnd      ç»ˆæ­¢åˆ—
+ * @return  SUCCESS â€“ è¾“å…¥æˆåŠŸ
+ * @return  BREAK â€“ è¾“å…¥ä¸­æ–­
+ * @note    è¾“å…¥çŸ©é˜µçš„æŒ‡å®šèŒƒå›´
  */
 int matInLocal(double **matData, int rowStart, int rowEnd, int colStart, int colEnd);
 
 /**
- * @brief   ¾ØÕóIO ¨C ¾ØÕóÊä³ö
- * @param   matrix      ¾ØÕó
- * @param   precision   ¸¡µãÊı±£ÁôĞ¡ÊıÎ»Êı
- * @param   width       ¸¡µãÊı´òÓ¡×Ö¶Î¿í¶È
- * @note    Êä³ö¾ØÕómatrix
+ * @brief   çŸ©é˜µIO â€“ çŸ©é˜µè¾“å‡º
+ * @param   matrix      çŸ©é˜µ
+ * @param   precision   æµ®ç‚¹æ•°ä¿ç•™å°æ•°ä½æ•°
+ * @param   width       æµ®ç‚¹æ•°æ‰“å°å­—æ®µå®½åº¦
+ * @note    è¾“å‡ºçŸ©é˜µmatrix
  */
 void matOutput(Mat matrix, int precision, int width);
 
 /**
- * @brief   ¾ØÕóIO ¨C ¾ØÕó¾Ö²¿Êä³ö
- * @param   matData     Ö¸Ïò¾ØÕóÊı¾İµÄÖ¸Õë
- * @param   rowStart    ÆğÊ¼ĞĞ
- * @param   rowEnd      ÖÕÖ¹ĞĞ
- * @param   colStart    ÆğÊ¼ÁĞ
- * @param   colEnd      ÖÕÖ¹ÁĞ
- * @param   precision   ¸¡µãÊı±£ÁôĞ¡ÊıÎ»Êı
- * @param   width       ¸¡µãÊı´òÓ¡×Ö¶Î¿í¶È
- * @note    Êä³ö¾ØÕóµÄÖ¸¶¨·¶Î§
+ * @brief   çŸ©é˜µIO â€“ çŸ©é˜µå±€éƒ¨è¾“å‡º
+ * @param   matData     æŒ‡å‘çŸ©é˜µæ•°æ®çš„æŒ‡é’ˆ
+ * @param   rowStart    èµ·å§‹è¡Œ
+ * @param   rowEnd      ç»ˆæ­¢è¡Œ
+ * @param   colStart    èµ·å§‹åˆ—
+ * @param   colEnd      ç»ˆæ­¢åˆ—
+ * @param   precision   æµ®ç‚¹æ•°ä¿ç•™å°æ•°ä½æ•°
+ * @param   width       æµ®ç‚¹æ•°æ‰“å°å­—æ®µå®½åº¦
+ * @note    è¾“å‡ºçŸ©é˜µçš„æŒ‡å®šèŒƒå›´
  */
 void matOutLocal(double **matData, int rowStart, int rowEnd, int colStart, int colEnd,
                  int precision, int width);
 
 /**
- * @brief   ¾ØÕóIO ¨C ¸¡µãÊıÊä³ö
- * @param   value       ´ıÊä³öÖµ
- * @param   precision   ±£ÁôĞ¡ÊıÎ»Êı
- * @param   width       ´òÓ¡×Ö¶Î¿í¶È
- * @param   isAbs       ÊÇ·ñÊä³ö¾ø¶ÔÖµ
- * @note    °´²ÎÊıÒªÇó´òÓ¡¸¡µãÊı
+ * @brief   çŸ©é˜µIO â€“ æµ®ç‚¹æ•°è¾“å‡º
+ * @param   value       å¾…è¾“å‡ºå€¼
+ * @param   precision   ä¿ç•™å°æ•°ä½æ•°
+ * @param   width       æ‰“å°å­—æ®µå®½åº¦ï¼Œæ— éœ€æ§åˆ¶è¯·ä¼ å…¥0
+ * @param   isAbs       æ˜¯å¦è¾“å‡ºç»å¯¹å€¼
+ * @note    æŒ‰å‚æ•°è¦æ±‚æ‰“å°æµ®ç‚¹æ•°
  */
 void prtDouble(double value, int precision, int width, bool isAbs);
 

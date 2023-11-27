@@ -1,13 +1,28 @@
-#include ".\include\MaxInd.h"
-#include "..\include\MatOper.h"
-#include "..\include\MatUtil.h"
-#include "..\include\MatIO.h"
-#include "..\include\MatStruct.h"
-#include "..\include\MatConst.h"
+#include "./include/MaxInd.h"
+#include "../include/MatOper.h"
+#include "../include/MatUtil.h"
+#include "../include/MatIO.h"
+#include "../include/MatStruct.h"
+#include "../include/MatConst.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <math.h>
+
+void static clear(void)
+{
+    while (getchar() != '\n')
+        ;
+}
+
+void static pause(void)
+{
+    ungetc('\n', stdin);
+    printf("\n鎸夊洖杞﹂敭缁х画...");
+    getchar();
+    clear();
+    putchar('\n');
+}
 
 void maxInd(void)
 {
@@ -16,21 +31,21 @@ void maxInd(void)
     int numRows = 0, numCols = 0, rank = 0;
     int *pivot = NULL;
     bool isFirst = false;
-    printf("极大线性无关组计算器\n\n");
-    printf("向量维数: ");
+    printf("鏋佸ぇ绾挎�ф棤鍏崇粍璁＄畻鍣╘n\n");
+    printf("鍚戦噺缁存暟: ");
     while (scanf("%d", &numRows) != 1)
     {
-        fflush(stdin);
-        printf("向量维数: ");
+        clear();
+        printf("鍚戦噺缁存暟: ");
     }
-    fflush(stdin);
-    printf("向量个数: ");
+    clear();
+    printf("鍚戦噺涓暟: ");
     while (scanf("%d", &numCols) != 1)
     {
-        fflush(stdin);
-        printf("向量个数: ");
+        clear();
+        printf("鍚戦噺涓暟: ");
     }
-    fflush(stdin);
+    clear();
     matInit(&matrix, numRows, numCols);
     pivot = (int *)malloc(sizeof(int) * (numRows < numCols ? numRows : numCols));
     for (i = 0; i < numCols; i++)
@@ -39,9 +54,9 @@ void maxInd(void)
         while (matInLocal(matrix.data, 0, numRows - 1, i, i) == BREAK)
         {
             printf("a%d: ", i + 1);
-            fflush(stdin);
+            clear();
         }
-        fflush(stdin);
+        clear();
     }
     matRedEche(matrix, matrix, false);
     for (rank = 0, i = 0; rank < numRows && i < numCols; i++)
@@ -52,7 +67,7 @@ void maxInd(void)
             rank++;
         }
     }
-    printf("\n极大线性无关组:");
+    printf("\n鏋佸ぇ绾挎�ф棤鍏崇粍:");
     for (i = 0; i < rank; i++)
     {
         printf(" a%d", pivot[i] + 1);
@@ -60,7 +75,7 @@ void maxInd(void)
     putchar('\n');
     for (i = 0, j = 0; i < numCols; i++)
     {
-        if (pivot[j] != i)
+        if (j == rank || pivot[j] != i)
         {
             printf("a%d = ", i + 1);
             isFirst = true;
@@ -99,7 +114,6 @@ void maxInd(void)
             j++;
         }
     }
-    putchar('\n');
-    system("pause");
     matFree(&matrix);
+    pause();
 }

@@ -5,145 +5,145 @@
 #include <stdbool.h>
 
 /**
- * @brief   ¾ØÕóÔËËã ¨C ¾ØÕó¼Ó·¨
- * @param   source1     Ô´¾ØÕó1
- * @param   source2     Ô´¾ØÕó2
- * @param   target      Ä¿±ê¾ØÕó
- * @return  SUCCESS ¨C ¼ÆËã³É¹¦
- * @return  ERROR ¨C ¾ØÕóĞĞÁĞÊı²»Âú×ãÒªÇó
- * @note    ½«¾ØÕósource1Óë¾ØÕósource2µÄºÍ¸³Öµ¸ø¾ØÕótarget£¬Èı¾ØÕóĞëÍ¬ĞÍ
+ * @brief   çŸ©é˜µè¿ç®— â€“ çŸ©é˜µåŠ æ³•
+ * @param   source1     æºçŸ©é˜µ1
+ * @param   source2     æºçŸ©é˜µ2
+ * @param   target      ç›®æ ‡çŸ©é˜µ
+ * @return  SUCCESS â€“ è®¡ç®—æˆåŠŸ
+ * @return  ERROR â€“ çŸ©é˜µè¡Œåˆ—æ•°ä¸æ»¡è¶³è¦æ±‚
+ * @note    å°†çŸ©é˜µsource1ä¸çŸ©é˜µsource2çš„å’Œèµ‹å€¼ç»™çŸ©é˜µtargetï¼Œä¸‰çŸ©é˜µé¡»åŒå‹
  */
 int matData(Mat source1, Mat source2, Mat target);
 
 /**
- * @brief   ¾ØÕóÔËËã ¨C ¾ØÕó¼õ·¨
- * @param   sourceM     ±»¼õ¾ØÕó
- * @param   sourceS     ¼õ¾ØÕó
- * @param   target      Ä¿±ê¾ØÕó
- * @return  SUCCESS ¨C ¼ÆËã³É¹¦
- * @return  ERROR ¨C ¾ØÕóĞĞÁĞÊı²»Âú×ãÒªÇó
- * @note    ½«¾ØÕósourceM¼õ¾ØÕósourceSµÄ²î¸³Öµ¸ø¾ØÕótarget£¬Èı¾ØÕóĞëÍ¬ĞÍ
+ * @brief   çŸ©é˜µè¿ç®— â€“ çŸ©é˜µå‡æ³•
+ * @param   sourceM     è¢«å‡çŸ©é˜µ
+ * @param   sourceS     å‡çŸ©é˜µ
+ * @param   target      ç›®æ ‡çŸ©é˜µ
+ * @return  SUCCESS â€“ è®¡ç®—æˆåŠŸ
+ * @return  ERROR â€“ çŸ©é˜µè¡Œåˆ—æ•°ä¸æ»¡è¶³è¦æ±‚
+ * @note    å°†çŸ©é˜µsourceMå‡çŸ©é˜µsourceSçš„å·®èµ‹å€¼ç»™çŸ©é˜µtargetï¼Œä¸‰çŸ©é˜µé¡»åŒå‹
  */
 int matSub(Mat sourceM, Mat sourceS, Mat target);
 
 /**
- * @brief   ¾ØÕóÔËËã ¨C ¾ØÕóÊı³Ë
- * @param   source      Ô´¾ØÕó
- * @param   target      Ä¿±ê¾ØÕó
- * @param   multer  Êı³Ë±¶Êı
- * @return  SUCCESS ¨C ¼ÆËã³É¹¦
- * @return  ERROR ¨C ¾ØÕóĞĞÁĞÊı²»Âú×ãÒªÇó
- * @note    ½«¾ØÕósourceÊı³ËmulterµÄ»ı¸³Öµ¸ø¾ØÕótarget£¬Á½¾ØÕóĞëÍ¬ĞÍ
+ * @brief   çŸ©é˜µè¿ç®— â€“ çŸ©é˜µæ•°ä¹˜
+ * @param   source      æºçŸ©é˜µ
+ * @param   target      ç›®æ ‡çŸ©é˜µ
+ * @param   multer  æ•°ä¹˜å€æ•°
+ * @return  SUCCESS â€“ è®¡ç®—æˆåŠŸ
+ * @return  ERROR â€“ çŸ©é˜µè¡Œåˆ—æ•°ä¸æ»¡è¶³è¦æ±‚
+ * @note    å°†çŸ©é˜µsourceæ•°ä¹˜multerçš„ç§¯èµ‹å€¼ç»™çŸ©é˜µtargetï¼Œä¸¤çŸ©é˜µé¡»åŒå‹
  */
 int matScaMul(Mat source, Mat target, double multer);
 
 /**
- * @brief   ¾ØÕóÔËËã ¨C ¾ØÕó³Ë·¨
- * @param   sourceL     ×ó¾ØÕó
- * @param   sourceR     ÓÒ¾ØÕó
- * @param   target      Ä¿±ê¾ØÕó
- * @return  SUCCESS ¨C ¼ÆËã³É¹¦
- * @return  ERROR ¨C ¾ØÕóĞĞÁĞÊı²»Âú×ãÒªÇó
- * @note    ½«¾ØÕósourceLÓë¾ØÕósourceRµÄ»ı¸³Öµ¸ø¾ØÕótarget£¬sourceLµÄÁĞÊıĞëµÈÓÚsourceRµÄĞĞÊı£¬
- *          sourceLµÄĞĞÊıĞëµÈÓÚtargetµÄĞĞÊı£¬sourceRµÄÁĞÊıĞëµÈÓÚtargetµÄÁĞÊı
+ * @brief   çŸ©é˜µè¿ç®— â€“ çŸ©é˜µä¹˜æ³•
+ * @param   sourceL     å·¦çŸ©é˜µ
+ * @param   sourceR     å³çŸ©é˜µ
+ * @param   target      ç›®æ ‡çŸ©é˜µ
+ * @return  SUCCESS â€“ è®¡ç®—æˆåŠŸ
+ * @return  ERROR â€“ çŸ©é˜µè¡Œåˆ—æ•°ä¸æ»¡è¶³è¦æ±‚
+ * @note    å°†çŸ©é˜µsourceLä¸çŸ©é˜µsourceRçš„ç§¯èµ‹å€¼ç»™çŸ©é˜µtargetï¼ŒsourceLçš„åˆ—æ•°é¡»ç­‰äºsourceRçš„è¡Œæ•°ï¼Œ
+ *          sourceLçš„è¡Œæ•°é¡»ç­‰äºtargetçš„è¡Œæ•°ï¼ŒsourceRçš„åˆ—æ•°é¡»ç­‰äºtargetçš„åˆ—æ•°
  */
 int matMulti(Mat sourceL, Mat sourceR, Mat target);
 
 /**
- * @brief   ¾ØÕóÔËËã ¨C Çó×ªÖÃ¾ØÕó
- * @param   source      Ô´¾ØÕó
- * @param   target      Ä¿±ê¾ØÕó
- * @return  SUCCESS ¨C ¼ÆËã³É¹¦
- * @return  ERROR ¨C ¾ØÕóĞĞÁĞÊı²»Âú×ãÒªÇó
- * @note    ½«¾ØÕósourceµÄ×ªÖÃ¾ØÕó¸³Öµ¸ø¾ØÕótarget£¬sourceµÄĞĞÊıĞëµÈÓÚtargetµÄÁĞÊı£¬sourceµÄÁĞÊıĞëµÈÓÚtargetµÄĞĞÊı
+ * @brief   çŸ©é˜µè¿ç®— â€“ æ±‚è½¬ç½®çŸ©é˜µ
+ * @param   source      æºçŸ©é˜µ
+ * @param   target      ç›®æ ‡çŸ©é˜µ
+ * @return  SUCCESS â€“ è®¡ç®—æˆåŠŸ
+ * @return  ERROR â€“ çŸ©é˜µè¡Œåˆ—æ•°ä¸æ»¡è¶³è¦æ±‚
+ * @note    å°†çŸ©é˜µsourceçš„è½¬ç½®çŸ©é˜µèµ‹å€¼ç»™çŸ©é˜µtargetï¼Œsourceçš„è¡Œæ•°é¡»ç­‰äºtargetçš„åˆ—æ•°ï¼Œsourceçš„åˆ—æ•°é¡»ç­‰äºtargetçš„è¡Œæ•°
  */
 int matTrans(Mat source, Mat target);
 
 /**
- * @brief   ¾ØÕóÔËËã ¨C ÇóÄæ¾ØÕó
- * @param   source      Ô´¾ØÕó
- * @param   target      Ä¿±ê¾ØÕó
- * @return  SUCCESS ¨C ¼ÆËã³É¹¦
- * @return  SINGULAR ¨C ¾ØÕó²»¿ÉÄæ
- * @return  ERROR ¨C ¾ØÕóĞĞÁĞÊı²»Âú×ãÒªÇó
- * @note    ½«¾ØÕósourceµÄÄæ¾ØÕó¸³Öµ¸ø¾ØÕótarget£¬Á½¾ØÕóĞëÎªÍ¬ĞÍ·½Õó
+ * @brief   çŸ©é˜µè¿ç®— â€“ æ±‚é€†çŸ©é˜µ
+ * @param   source      æºçŸ©é˜µ
+ * @param   target      ç›®æ ‡çŸ©é˜µ
+ * @return  SUCCESS â€“ è®¡ç®—æˆåŠŸ
+ * @return  SINGULAR â€“ çŸ©é˜µä¸å¯é€†
+ * @return  ERROR â€“ çŸ©é˜µè¡Œåˆ—æ•°ä¸æ»¡è¶³è¦æ±‚
+ * @note    å°†çŸ©é˜µsourceçš„é€†çŸ©é˜µèµ‹å€¼ç»™çŸ©é˜µtargetï¼Œä¸¤çŸ©é˜µé¡»ä¸ºåŒå‹æ–¹é˜µ
  */
 int matInver(Mat source, Mat target);
 
 /**
- * @brief   ¾ØÕóÔËËã ¨C Çó°éËæ¾ØÕó
- * @param   source      Ô´¾ØÕó
- * @param   target      Ä¿±ê¾ØÕó
- * @return  SUCCESS ¨C ¼ÆËã³É¹¦
- * @return  ERROR ¨C ¾ØÕóĞĞÁĞÊı²»Âú×ãÒªÇó
- * @note    ½«¾ØÕósourceµÄ°éËæ¾ØÕó¸³Öµ¸ø¾ØÕótarget£¬Á½¾ØÕóĞëÎªÍ¬ĞÍ·½Õó
+ * @brief   çŸ©é˜µè¿ç®— â€“ æ±‚ä¼´éšçŸ©é˜µ
+ * @param   source      æºçŸ©é˜µ
+ * @param   target      ç›®æ ‡çŸ©é˜µ
+ * @return  SUCCESS â€“ è®¡ç®—æˆåŠŸ
+ * @return  ERROR â€“ çŸ©é˜µè¡Œåˆ—æ•°ä¸æ»¡è¶³è¦æ±‚
+ * @note    å°†çŸ©é˜µsourceçš„ä¼´éšçŸ©é˜µèµ‹å€¼ç»™çŸ©é˜µtargetï¼Œä¸¤çŸ©é˜µé¡»ä¸ºåŒå‹æ–¹é˜µ
  */
 int matAdjo(Mat source, Mat target);
 
 /**
- * @brief   ¾ØÕóÔËËã ¨C ÇóĞĞ½×ÌİĞÎ¾ØÕó
- * @param   source      Ô´¾ØÕó
- * @param   target      Ä¿±ê¾ØÕó
- * @param   deterPtr    Ö¸ÏòĞĞÁĞÊ½µÄÖ¸Õë£¬Èô²»ĞèÒªÇë´«ÈëNULL
- * @return  SUCCESS ¨C ¼ÆËã³É¹¦
- * @return  ERROR ¨C ¾ØÕóĞĞÁĞÊı²»Âú×ãÒªÇó
- * @note    ½«¾ØÕósourceµÄĞĞ½×ÌİĞÎ¾ØÕó¸³Öµ¸ø¾ØÕótarget£¬½«¾ØÕósourceµÄĞĞÁĞÊ½¸³Öµ¸ø*deterPtr£¬Á½¾ØÕóĞëÍ¬ĞÍ
+ * @brief   çŸ©é˜µè¿ç®— â€“ æ±‚è¡Œé˜¶æ¢¯å½¢çŸ©é˜µ
+ * @param   source      æºçŸ©é˜µ
+ * @param   target      ç›®æ ‡çŸ©é˜µ
+ * @param   deterPtr    æŒ‡å‘è¡Œåˆ—å¼çš„æŒ‡é’ˆï¼Œè‹¥ä¸éœ€è¦è¯·ä¼ å…¥NULL
+ * @return  SUCCESS â€“ è®¡ç®—æˆåŠŸ
+ * @return  ERROR â€“ çŸ©é˜µè¡Œåˆ—æ•°ä¸æ»¡è¶³è¦æ±‚
+ * @note    å°†çŸ©é˜µsourceçš„è¡Œé˜¶æ¢¯å½¢çŸ©é˜µèµ‹å€¼ç»™çŸ©é˜µtargetï¼Œå°†çŸ©é˜µsourceçš„è¡Œåˆ—å¼èµ‹å€¼ç»™*deterPtrï¼Œä¸¤çŸ©é˜µé¡»åŒå‹
  */
 int matEche(Mat source, Mat target, double *deterPtr);
 
 /**
- * @brief   ¾ØÕóÔËËã ¨C ÇóĞĞ×î¼òĞÎ¾ØÕó
- * @param   source      Ô´¾ØÕó
- * @param   target      Ä¿±ê¾ØÕó
- * @param   isEche      sourceÊÇ·ñÎªĞĞ½×ÌİĞÎ¾ØÕó
- * @return  SUCCESS ¨C ¼ÆËã³É¹¦
- * @return  ERROR ¨C ¾ØÕóĞĞÁĞÊı²»Âú×ãÒªÇó
- * @note    ½«¾ØÕósourceµÄĞĞ×î¼òĞÎ¾ØÕó¸³Öµ¸ø¾ØÕótarget£¬Á½¾ØÕóĞëÍ¬ĞÍ
+ * @brief   çŸ©é˜µè¿ç®— â€“ æ±‚è¡Œæœ€ç®€å½¢çŸ©é˜µ
+ * @param   source      æºçŸ©é˜µ
+ * @param   target      ç›®æ ‡çŸ©é˜µ
+ * @param   isEche      sourceæ˜¯å¦ä¸ºè¡Œé˜¶æ¢¯å½¢çŸ©é˜µ
+ * @return  SUCCESS â€“ è®¡ç®—æˆåŠŸ
+ * @return  ERROR â€“ çŸ©é˜µè¡Œåˆ—æ•°ä¸æ»¡è¶³è¦æ±‚
+ * @note    å°†çŸ©é˜µsourceçš„è¡Œæœ€ç®€å½¢çŸ©é˜µèµ‹å€¼ç»™çŸ©é˜µtargetï¼Œä¸¤çŸ©é˜µé¡»åŒå‹
  */
 int matRedEche(Mat source, Mat target, bool isEche);
 
 /**
- * @brief   ¾ØÕóÔËËã ¨C Çó¾ØÕóµÄÖÈ
- * @param   matrix      ¾ØÕó
- * @param   isEche      matrixÊÇ·ñÎªĞĞ½×ÌİĞÎ¾ØÕó
- * @param   rankPtr     Ö¸ÏòÖÈµÄÖ¸Õë
- * @return  SUCCESS ¨C ¼ÆËã³É¹¦
- * @return  ERROR ¨C Ö¸ÕëÎª¿Õ
- * @note    Çó¾ØÕómatrixµÄÖÈ£¬²¢¸³Öµ¸ø*rankPtr
+ * @brief   çŸ©é˜µè¿ç®— â€“ æ±‚çŸ©é˜µçš„ç§©
+ * @param   matrix      çŸ©é˜µ
+ * @param   isEche      matrixæ˜¯å¦ä¸ºè¡Œé˜¶æ¢¯å½¢çŸ©é˜µ
+ * @param   rankPtr     æŒ‡å‘ç§©çš„æŒ‡é’ˆ
+ * @return  SUCCESS â€“ è®¡ç®—æˆåŠŸ
+ * @return  ERROR â€“ æŒ‡é’ˆä¸ºç©º
+ * @note    æ±‚çŸ©é˜µmatrixçš„ç§©ï¼Œå¹¶èµ‹å€¼ç»™*rankPtr
  */
 int matRank(Mat matrix, bool isEche, int *rankPtr);
 
 /**
- * @brief   ¾ØÕóÔËËã ¨C Çó¾ØÕóµÄĞĞÁĞÊ½
- * @param   matrix      ¾ØÕó
- * @param   deterPtr    Ö¸ÏòĞĞÁĞÊ½µÄÖ¸Õë
- * @return  SUCCESS ¨C ¼ÆËã³É¹¦
- * @return  ERROR ¨C ¾ØÕóĞĞÁĞÊı²»Âú×ãÒªÇó£¬»òÖ¸ÕëÎª¿Õ
- * @note    Çó¾ØÕómatrixµÄĞĞÁĞÊ½£¬²¢¸³Öµ¸ø*deterPtr£¬¾ØÕóĞëÎª·½Õó
+ * @brief   çŸ©é˜µè¿ç®— â€“ æ±‚çŸ©é˜µçš„è¡Œåˆ—å¼
+ * @param   matrix      çŸ©é˜µ
+ * @param   deterPtr    æŒ‡å‘è¡Œåˆ—å¼çš„æŒ‡é’ˆ
+ * @return  SUCCESS â€“ è®¡ç®—æˆåŠŸ
+ * @return  ERROR â€“ çŸ©é˜µè¡Œåˆ—æ•°ä¸æ»¡è¶³è¦æ±‚ï¼Œæˆ–æŒ‡é’ˆä¸ºç©º
+ * @note    æ±‚çŸ©é˜µmatrixçš„è¡Œåˆ—å¼ï¼Œå¹¶èµ‹å€¼ç»™*deterPtrï¼ŒçŸ©é˜µé¡»ä¸ºæ–¹é˜µ
  */
 int matDeter(Mat matrix, double *deterPtr);
 
 /**
- * @brief   ¾ØÕóÔËËã ¨C Çó¾ØÕóÔªËØµÄÓà×ÓÊ½
- * @param   matrix      ¾ØÕó
- * @param   indexRow    ÔªËØĞĞË÷Òı
- * @param   indexCol    ÔªËØÁĞË÷Òı
- * @param   minorPtr    Ö¸ÏòÓà×ÓÊ½µÄÖ¸Õë
- * @return  SUCCESS ¨C ¼ÆËã³É¹¦
- * @return  ERROR ¨C ¾ØÕóĞĞÁĞÊı²»Âú×ãÒªÇó£¬»òÖ¸ÕëÎª¿Õ
- * @note    Çó¾ØÕómatrixµÚindexRowĞĞµÚindexColÁĞÔªËØµÄÓà×ÓÊ½£¬²¢¸³Öµ¸ø*minorPtr£¬¾ØÕóĞëÎª·½Õó
+ * @brief   çŸ©é˜µè¿ç®— â€“ æ±‚çŸ©é˜µå…ƒç´ çš„ä½™å­å¼
+ * @param   matrix      çŸ©é˜µ
+ * @param   indexRow    å…ƒç´ è¡Œç´¢å¼•
+ * @param   indexCol    å…ƒç´ åˆ—ç´¢å¼•
+ * @param   minorPtr    æŒ‡å‘ä½™å­å¼çš„æŒ‡é’ˆ
+ * @return  SUCCESS â€“ è®¡ç®—æˆåŠŸ
+ * @return  ERROR â€“ çŸ©é˜µè¡Œåˆ—æ•°ä¸æ»¡è¶³è¦æ±‚ï¼Œæˆ–æŒ‡é’ˆä¸ºç©º
+ * @note    æ±‚çŸ©é˜µmatrixç¬¬indexRowè¡Œç¬¬indexColåˆ—å…ƒç´ çš„ä½™å­å¼ï¼Œå¹¶èµ‹å€¼ç»™*minorPtrï¼ŒçŸ©é˜µé¡»ä¸ºæ–¹é˜µ
  */
 int matMinor(Mat matrix, int indexRow, int indexCol, double *minorPtr);
 
 /**
- * @brief   ¾ØÕóÔËËã ¨C Çó¾ØÕóÔªËØµÄ´úÊıÓà×ÓÊ½
- * @param   matrix      ¾ØÕó
- * @param   indexRow    ÔªËØĞĞË÷Òı
- * @param   indexCol    ÔªËØÁĞË÷Òı
- * @param   cofacPtr    Ö¸Ïò´úÊıÓà×ÓÊ½µÄÖ¸Õë
- * @return  SUCCESS ¨C ¼ÆËã³É¹¦
- * @return  ERROR ¨C ¾ØÕóĞĞÁĞÊı²»Âú×ãÒªÇó£¬»òÖ¸ÕëÎª¿Õ
- * @note    Çó¾ØÕómatrixµÚindexRowĞĞµÚindexColÁĞÔªËØµÄ´úÊıÓà×ÓÊ½£¬²¢¸³Öµ¸ø*cofacPtr£¬¾ØÕóĞëÎª·½Õó
+ * @brief   çŸ©é˜µè¿ç®— â€“ æ±‚çŸ©é˜µå…ƒç´ çš„ä»£æ•°ä½™å­å¼
+ * @param   matrix      çŸ©é˜µ
+ * @param   indexRow    å…ƒç´ è¡Œç´¢å¼•
+ * @param   indexCol    å…ƒç´ åˆ—ç´¢å¼•
+ * @param   cofacPtr    æŒ‡å‘ä»£æ•°ä½™å­å¼çš„æŒ‡é’ˆ
+ * @return  SUCCESS â€“ è®¡ç®—æˆåŠŸ
+ * @return  ERROR â€“ çŸ©é˜µè¡Œåˆ—æ•°ä¸æ»¡è¶³è¦æ±‚ï¼Œæˆ–æŒ‡é’ˆä¸ºç©º
+ * @note    æ±‚çŸ©é˜µmatrixç¬¬indexRowè¡Œç¬¬indexColåˆ—å…ƒç´ çš„ä»£æ•°ä½™å­å¼ï¼Œå¹¶èµ‹å€¼ç»™*cofacPtrï¼ŒçŸ©é˜µé¡»ä¸ºæ–¹é˜µ
  */
 int matCofac(Mat matrix, int indexRow, int indexCol, double *cofacPtr);
 

@@ -1,5 +1,5 @@
-#include "..\include\MatIO.h"
-#include "..\include\MatConst.h"
+#include "../include/MatIO.h"
+#include "../include/MatConst.h"
 #include <stdio.h>
 #include <math.h>
 

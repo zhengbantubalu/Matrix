@@ -1,7 +1,7 @@
-#include "..\include\MatOper.h"
-#include "..\include\MatEleTrans.h"
-#include "..\include\MatUtil.h"
-#include "..\include\MatConst.h"
+#include "../include/MatOper.h"
+#include "../include/MatEleTrans.h"
+#include "../include/MatUtil.h"
+#include "../include/MatConst.h"
 #include <stdlib.h>
 #include <math.h>
 

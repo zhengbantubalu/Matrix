@@ -2,10 +2,10 @@
 #define _MATSTRUCT_H_
 
 /**
- * @brief   ¾ØÕó½á¹¹Ìå
- * @note    data ¨C Ö¸Ïò¾ØÕóÊı¾İµÄÖ¸Õë
- * @note    numRows ¨C ¾ØÕóĞĞÊı
- * @note    numCols ¨C ¾ØÕóÁĞÊı
+ * @brief   çŸ©é˜µç»“æ„ä½“
+ * @note    data â€“ æŒ‡å‘çŸ©é˜µæ•°æ®çš„æŒ‡é’ˆ
+ * @note    numRows â€“ çŸ©é˜µè¡Œæ•°
+ * @note    numCols â€“ çŸ©é˜µåˆ—æ•°
  */
 typedef struct mat
 {

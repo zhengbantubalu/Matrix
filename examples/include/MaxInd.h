@@ -2,7 +2,7 @@
 #define _MAXIND_H_
 
 /**
- * @brief   Ê¾Àý ¨C ¼«´óÏßÐÔÎÞ¹Ø×é¼ÆËãÆ÷
+ * @brief   ç¤ºä¾‹ â€“ æžå¤§çº¿æ€§æ— å…³ç»„è®¡ç®—å™¨
  */
 void maxInd(void);
 

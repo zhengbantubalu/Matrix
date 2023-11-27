@@ -1,4 +1,4 @@
-#include "..\include\MatEleTrans.h"
+#include "../include/MatEleTrans.h"
 #include <stdlib.h>
 
 void matEleSwap(Mat matrix, int index1, int index2, bool isRow)

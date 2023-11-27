@@ -5,33 +5,33 @@
 #include <stdbool.h>
 
 /**
- * @brief   ¾ØÕó³õµÈ±ä»» ¨C ¶Ô»»±ä»»
- * @param   matrix      ¾ØÕó
- * @param   index1      Ä¿±ê1ĞĞË÷Òı
- * @param   index2      Ä¿±ê2ĞĞË÷Òı
- * @param   isRow       ÎªÕæÔòĞĞ±ä»»£¬Îª¼ÙÔòÁĞ±ä»»
- * @note    ½«¾ØÕómatrixµÄµÚindex1ĞĞÓëµÚindex2ĞĞ¶Ô»»(ÁĞ±ä»»Í¬Àí)
+ * @brief   çŸ©é˜µåˆç­‰å˜æ¢ â€“ å¯¹æ¢å˜æ¢
+ * @param   matrix      çŸ©é˜µ
+ * @param   index1      ç›®æ ‡1è¡Œç´¢å¼•
+ * @param   index2      ç›®æ ‡2è¡Œç´¢å¼•
+ * @param   isRow       ä¸ºçœŸåˆ™è¡Œå˜æ¢ï¼Œä¸ºå‡åˆ™åˆ—å˜æ¢
+ * @note    å°†çŸ©é˜µmatrixçš„ç¬¬index1è¡Œä¸ç¬¬index2è¡Œå¯¹æ¢(åˆ—å˜æ¢åŒç†)
  */
 void matEleSwap(Mat matrix, int index1, int index2, bool isRow);
 
 /**
- * @brief   ¾ØÕó³õµÈ±ä»» ¨C Êı³Ë±ä»»
- * @param   matrix      ¾ØÕó
- * @param   index       Ä¿±êĞĞË÷Òı
- * @param   multer      Êı³Ë±¶Êı
- * @param   isRow       ÎªÕæÔòĞĞ±ä»»£¬Îª¼ÙÔòÁĞ±ä»»
- * @note    ½«¾ØÕómatrixµÚindexĞĞ³ËÒÔmulter(ÁĞ±ä»»Í¬Àí)
+ * @brief   çŸ©é˜µåˆç­‰å˜æ¢ â€“ æ•°ä¹˜å˜æ¢
+ * @param   matrix      çŸ©é˜µ
+ * @param   index       ç›®æ ‡è¡Œç´¢å¼•
+ * @param   multer      æ•°ä¹˜å€æ•°
+ * @param   isRow       ä¸ºçœŸåˆ™è¡Œå˜æ¢ï¼Œä¸ºå‡åˆ™åˆ—å˜æ¢
+ * @note    å°†çŸ©é˜µmatrixç¬¬indexè¡Œä¹˜ä»¥multer(åˆ—å˜æ¢åŒç†)
  */
 void matEleScaMul(Mat matrix, int index, double multer, bool isRow);
 
 /**
- * @brief   ¾ØÕó³õµÈ±ä»» ¨C ±¶¼Ó±ä»»
- * @param   matrix      ¾ØÕó
- * @param   indexS      Ô´ĞĞË÷Òı
- * @param   indexT      Ä¿±êĞĞË÷Òı
- * @param   multer      Êı³Ë±¶Êı
- * @param   isRow       ÎªÕæÔòĞĞ±ä»»£¬Îª¼ÙÔòÁĞ±ä»»
- * @note    ½«¾ØÕómatrixµÚindexSĞĞµÄmulter±¶¼Óµ½µÚindexTĞĞÉÏ(ÁĞ±ä»»Í¬Àí)
+ * @brief   çŸ©é˜µåˆç­‰å˜æ¢ â€“ å€åŠ å˜æ¢
+ * @param   matrix      çŸ©é˜µ
+ * @param   indexS      æºè¡Œç´¢å¼•
+ * @param   indexT      ç›®æ ‡è¡Œç´¢å¼•
+ * @param   multer      æ•°ä¹˜å€æ•°
+ * @param   isRow       ä¸ºçœŸåˆ™è¡Œå˜æ¢ï¼Œä¸ºå‡åˆ™åˆ—å˜æ¢
+ * @note    å°†çŸ©é˜µmatrixç¬¬indexSè¡Œçš„multerå€åŠ åˆ°ç¬¬indexTè¡Œä¸Š(åˆ—å˜æ¢åŒç†)
  */
 void matEleAdd(Mat matrix, int indexS, int indexT, double multer, bool isRow);
 

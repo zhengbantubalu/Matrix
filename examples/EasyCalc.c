@@ -1,9 +1,9 @@
-#include ".\include\EasyCalc.h"
-#include "..\include\MatOper.h"
-#include "..\include\MatUtil.h"
-#include "..\include\MatIO.h"
-#include "..\include\MatStruct.h"
-#include "..\include\MatConst.h"
+#include "./include/EasyCalc.h"
+#include "../include/MatOper.h"
+#include "../include/MatUtil.h"
+#include "../include/MatIO.h"
+#include "../include/MatStruct.h"
+#include "../include/MatConst.h"
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -26,10 +26,18 @@
 #define MULTI 11
 #define CLEAR 12
 
-void pause(void)
+void static clear(void)
 {
-    putchar('\n');
-    system("pause");
+    while (getchar() != '\n')
+        ;
+}
+
+void static pause(void)
+{
+    ungetc('\n', stdin);
+    printf("\næŒ‰å›è½¦é”®ç»§ç»­...");
+    getchar();
+    clear();
     putchar('\n');
 }
 
@@ -42,16 +50,16 @@ void easyCalc(void)
     int numRows = 0, numCols = 0;
     int rank = 0;
     double det = 0, multer = 0;
-    printf("¼òÒ×¾ØÕó¼ÆËãÆ÷\n\n");
+    printf("ç®€æ˜“çŸ©é˜µè®¡ç®—å™¨\n\n");
     while (state != END)
     {
         switch (state)
         {
         case START:
-            printf("ÇëÊäÈëÑ¡Ïî:\n1.ÊäÈë¾ØÕó    2.²âÊÔÓÃÀı    3.ÍË³ö³ÌĞò\n\n");
+            printf("è¯·è¾“å…¥é€‰é¡¹:\n1.è¾“å…¥çŸ©é˜µ    2.æµ‹è¯•ç”¨ä¾‹    3.é€€å‡ºç¨‹åº\n\n");
             choice = 0;
             scanf("%d", &choice);
-            fflush(stdin);
+            clear();
             putchar('\n');
             switch (choice)
             {
@@ -59,27 +67,27 @@ void easyCalc(void)
                 state = INPUT;
                 break;
             case 2:
-                printf("Àı1:\n4 4\n1 2 3 4\n2 3 4 1\n3 4 1 2\n4 1 2 3\n\n");
-                printf("Àı2:\n4 5\n1 1 1 1 1\n3 2 1 1 -3\n0 1 3 2 5\n5 4 3 3 -1\n\n");
-                printf("Àı3:\n3 3 3 -3 4 2 -3 4 0 -1 1\n\n");
-                printf("Àı4:\n4 4 4 1 2 4 1 2 0 2 10 5 2 0 0 1 1 7\n\n");
+                printf("ä¾‹1:\n4 4\n1 2 3 4\n2 3 4 1\n3 4 1 2\n4 1 2 3\n\n");
+                printf("ä¾‹2:\n4 5\n1 1 1 1 1\n3 2 1 1 -3\n0 1 3 2 5\n5 4 3 3 -1\n\n");
+                printf("ä¾‹3:\n3 3 3 -3 4 2 -3 4 0 -1 1\n\n");
+                printf("ä¾‹4:\n4 4 4 1 2 4 1 2 0 2 10 5 2 0 0 1 1 7\n\n");
                 break;
             case 3:
                 state = END;
                 break;
             default:
-                printf("Ñ¡Ïî²»´æÔÚ\n");
+                printf("é€‰é¡¹ä¸å­˜åœ¨\n");
                 pause();
             }
             break;
         case INPUT:
-            printf("ÇëÊäÈë¾ØÕóA\n[ĞĞÊı] [ÁĞÊı] [¾ØÕó] (ÎŞĞè»»ĞĞ)\n");
-            printf("ÊäÈëÈÎºÎ·ÇÊı×ÖÒÔÖĞ¶ÏÊäÈë\n\n");
+            printf("è¯·è¾“å…¥çŸ©é˜µA\n[è¡Œæ•°] [åˆ—æ•°] [çŸ©é˜µ] (æ— éœ€æ¢è¡Œ)\n");
+            printf("è¾“å…¥ä»»ä½•éæ•°å­—ä»¥ä¸­æ–­è¾“å…¥\n\n");
             ungetc(ch = getchar(), stdin);
             if (scanf("%d%d", &numRows, &numCols) != 2)
             {
-                printf("\nÊäÈëÖĞ¶Ï\n");
-                fflush(stdin);
+                printf("\nè¾“å…¥ä¸­æ–­\n");
+                clear();
                 pause();
                 state = START;
                 break;
@@ -92,21 +100,21 @@ void easyCalc(void)
                 state = SELECT;
                 break;
             case BREAK:
-                printf("\nÊäÈëÖĞ¶Ï\n");
+                printf("\nè¾“å…¥ä¸­æ–­\n");
                 pause();
                 state = FREE;
                 break;
             }
-            fflush(stdin);
+            clear();
             break;
         case SELECT:
-            printf("ÇëÊäÈëÑ¡Ïî:\n1. Çó¾ØÕóµÄÖÈ       2. Çó¾ØÕóµÄĞĞÁĞÊ½   3. ÇóĞĞ½×ÌİĞÎ¾ØÕó\n");
-            printf("4. ÇóĞĞ×î¼òĞÎ¾ØÕó   5. Çó×ªÖÃ¾ØÕó       6. Çó°éËæ¾ØÕó\n");
-            printf("7. ÇóÄæ¾ØÕó         8. ¾ØÕó¼Ó·¨         9. ¾ØÕó¼õ·¨\n");
-            printf("10.¾ØÕóÊı³Ë         11.¾ØÕó³Ë·¨         12.Çå³ı¾ØÕó\n\n");
+            printf("è¯·è¾“å…¥é€‰é¡¹:\n1. æ±‚çŸ©é˜µçš„ç§©       2. æ±‚çŸ©é˜µçš„è¡Œåˆ—å¼   3. æ±‚è¡Œé˜¶æ¢¯å½¢çŸ©é˜µ\n");
+            printf("4. æ±‚è¡Œæœ€ç®€å½¢çŸ©é˜µ   5. æ±‚è½¬ç½®çŸ©é˜µ       6. æ±‚ä¼´éšçŸ©é˜µ\n");
+            printf("7. æ±‚é€†çŸ©é˜µ         8. çŸ©é˜µåŠ æ³•         9. çŸ©é˜µå‡æ³•\n");
+            printf("10.çŸ©é˜µæ•°ä¹˜         11.çŸ©é˜µä¹˜æ³•         12.æ¸…é™¤çŸ©é˜µ\n\n");
             choice = 0;
             scanf("%d", &choice);
-            fflush(stdin);
+            clear();
             putchar('\n');
             switch (choice)
             {
@@ -124,14 +132,14 @@ void easyCalc(void)
                     putchar('\n');
                     break;
                 case ERROR:
-                    printf("Ö»ÓĞ·½Õó¿ÉÒÔÇóĞĞÁĞÊ½\n");
+                    printf("åªæœ‰æ–¹é˜µå¯ä»¥æ±‚è¡Œåˆ—å¼\n");
                 }
                 pause();
                 break;
             case ECHE:
                 matInit(&matOut, matrix.numRows, matrix.numCols);
                 matEche(matrix, matOut, NULL);
-                printf("AµÄĞĞ½×ÌİĞÎ¾ØÕó:\n");
+                printf("Açš„è¡Œé˜¶æ¢¯å½¢çŸ©é˜µ:\n");
                 matOutput(matOut, PRECISION, WIDTH);
                 matFree(&matOut);
                 pause();
@@ -139,7 +147,7 @@ void easyCalc(void)
             case REDECHE:
                 matInit(&matOut, matrix.numRows, matrix.numCols);
                 matRedEche(matrix, matOut, false);
-                printf("AµÄĞĞ×î¼òĞÎ¾ØÕó:\n");
+                printf("Açš„è¡Œæœ€ç®€å½¢çŸ©é˜µ:\n");
                 matOutput(matOut, PRECISION, WIDTH);
                 matFree(&matOut);
                 pause();
@@ -147,7 +155,7 @@ void easyCalc(void)
             case TRANS:
                 matInit(&matOut, matrix.numCols, matrix.numRows);
                 matTrans(matrix, matOut);
-                printf("AµÄ×ªÖÃ¾ØÕó:\n");
+                printf("Açš„è½¬ç½®çŸ©é˜µ:\n");
                 matOutput(matOut, PRECISION, WIDTH);
                 matFree(&matOut);
                 pause();
@@ -157,11 +165,11 @@ void easyCalc(void)
                 switch (matAdjo(matrix, matOut))
                 {
                 case SUCCESS:
-                    printf("AµÄ°éËæ¾ØÕó:\n");
+                    printf("Açš„ä¼´éšçŸ©é˜µ:\n");
                     matOutput(matOut, PRECISION, WIDTH);
                     break;
                 case ERROR:
-                    printf("Ö»ÓĞ·½Õó¿ÉÒÔÇó°éËæ¾ØÕó\n");
+                    printf("åªæœ‰æ–¹é˜µå¯ä»¥æ±‚ä¼´éšçŸ©é˜µ\n");
                     break;
                 }
                 matFree(&matOut);
@@ -172,14 +180,14 @@ void easyCalc(void)
                 switch (matInver(matrix, matOut))
                 {
                 case SUCCESS:
-                    printf("AµÄÄæ¾ØÕó:\n");
+                    printf("Açš„é€†çŸ©é˜µ:\n");
                     matOutput(matOut, PRECISION, WIDTH);
                     break;
                 case SINGULAR:
-                    printf("¾ØÕó²»¿ÉÄæ\n");
+                    printf("çŸ©é˜µä¸å¯é€†\n");
                     break;
                 case ERROR:
-                    printf("Ö»ÓĞ·½Õó¿ÉÒÔÇóÄæ¾ØÕó\n");
+                    printf("åªæœ‰æ–¹é˜µå¯ä»¥æ±‚é€†çŸ©é˜µ\n");
                     break;
                 }
                 matFree(&matOut);
@@ -188,8 +196,8 @@ void easyCalc(void)
             case ADD:
                 matInit(&matemp, matrix.numRows, matrix.numCols);
                 matInit(&matOut, matrix.numRows, matrix.numCols);
-                printf("ÇëÊäÈë %dĞĞ %dÁĞ µÄ¾ØÕóB (ÎŞĞèÊäÈëĞĞÁĞÊı)\n", numRows, numCols);
-                printf("ÊäÈëÈÎºÎ·ÇÊı×ÖÒÔÖĞ¶ÏÊäÈë\n\n");
+                printf("è¯·è¾“å…¥ %dè¡Œ %dåˆ— çš„çŸ©é˜µB (æ— éœ€è¾“å…¥è¡Œåˆ—æ•°)\n", numRows, numCols);
+                printf("è¾“å…¥ä»»ä½•éæ•°å­—ä»¥ä¸­æ–­è¾“å…¥\n\n");
                 switch (matInput(matemp))
                 {
                 case SUCCESS:
@@ -198,10 +206,10 @@ void easyCalc(void)
                     matOutput(matOut, PRECISION, WIDTH);
                     break;
                 case BREAK:
-                    printf("\nÊäÈëÖĞ¶Ï\n");
+                    printf("\nè¾“å…¥ä¸­æ–­\n");
                     break;
                 }
-                fflush(stdin);
+                clear();
                 matFree(&matemp);
                 matFree(&matOut);
                 pause();
@@ -209,16 +217,16 @@ void easyCalc(void)
             case SUB:
                 matInit(&matemp, matrix.numRows, matrix.numCols);
                 matInit(&matOut, matrix.numRows, matrix.numCols);
-                printf("ÇëÊäÈë %dĞĞ %dÁĞ µÄ¾ØÕóB (ÎŞĞèÊäÈëĞĞÁĞÊı)\n", numRows, numCols);
-                printf("ÊäÈëÈÎºÎ·ÇÊı×ÖÒÔÖĞ¶ÏÊäÈë\n\n");
+                printf("è¯·è¾“å…¥ %dè¡Œ %dåˆ— çš„çŸ©é˜µB (æ— éœ€è¾“å…¥è¡Œåˆ—æ•°)\n", numRows, numCols);
+                printf("è¾“å…¥ä»»ä½•éæ•°å­—ä»¥ä¸­æ–­è¾“å…¥\n\n");
                 switch (matInput(matemp))
                 {
                 case SUCCESS:
-                    fflush(stdin);
-                    printf("\nÇëÊäÈëÑ¡Ïî:\n1.A - B    2.B - A\n\n");
+                    clear();
+                    printf("\nè¯·è¾“å…¥é€‰é¡¹:\n1.A - B    2.B - A\n\n");
                     choice = 0;
                     scanf("%d", &choice);
-                    fflush(stdin);
+                    clear();
                     putchar('\n');
                     switch (choice)
                     {
@@ -233,12 +241,12 @@ void easyCalc(void)
                         matOutput(matOut, PRECISION, WIDTH);
                         break;
                     default:
-                        printf("Ñ¡Ïî²»´æÔÚ\n");
+                        printf("é€‰é¡¹ä¸å­˜åœ¨\n");
                     }
                     break;
                 case BREAK:
-                    fflush(stdin);
-                    printf("\nÊäÈëÖĞ¶Ï\n");
+                    clear();
+                    printf("\nè¾“å…¥ä¸­æ–­\n");
                     break;
                 }
                 matFree(&matemp);
@@ -247,7 +255,7 @@ void easyCalc(void)
                 break;
             case SCAMUL:
                 matInit(&matOut, matrix.numRows, matrix.numCols);
-                printf("ÇëÊäÈëÊı³Ë±¶Êı:\n\n");
+                printf("è¯·è¾“å…¥æ•°ä¹˜å€æ•°:\n\n");
                 if (scanf("%lf", &multer) == 1)
                 {
                     matScaMul(matrix, matOut, multer);
@@ -258,34 +266,34 @@ void easyCalc(void)
                 }
                 else
                 {
-                    printf("\nÊäÈë²»ÊÇÊı×Ö\n");
+                    printf("\nè¾“å…¥ä¸æ˜¯æ•°å­—\n");
                 }
-                fflush(stdin);
+                clear();
                 matFree(&matOut);
                 pause();
                 break;
             case MULTI:
-                printf("ÇëÊäÈëÑ¡Ïî:\n1.A * B    2.B * A\n\n");
+                printf("è¯·è¾“å…¥é€‰é¡¹:\n1.A * B    2.B * A\n\n");
                 scanf("%d", &choice);
-                fflush(stdin);
+                clear();
                 putchar('\n');
                 switch (choice)
                 {
                 case 1:
-                    printf("ÇëÊäÈë¾ØÕóB\n[ĞĞÊı] [ÁĞÊı] [¾ØÕó] (ÎŞĞè»»ĞĞ)\n");
-                    printf("¾ØÕóBµÄĞĞÊıĞëÎª%d\n", matrix.numCols);
-                    printf("ÊäÈëÈÎºÎ·ÇÊı×ÖÒÔÖĞ¶ÏÊäÈë\n\n");
+                    printf("è¯·è¾“å…¥çŸ©é˜µB\n[è¡Œæ•°] [åˆ—æ•°] [çŸ©é˜µ] (æ— éœ€æ¢è¡Œ)\n");
+                    printf("çŸ©é˜µBçš„è¡Œæ•°é¡»ä¸º%d\n", matrix.numCols);
+                    printf("è¾“å…¥ä»»ä½•éæ•°å­—ä»¥ä¸­æ–­è¾“å…¥\n\n");
                     ungetc(ch = getchar(), stdin);
                     if (scanf("%d%d", &numRows, &numCols) != 2)
                     {
-                        printf("\nÊäÈëÖĞ¶Ï\n");
-                        fflush(stdin);
+                        printf("\nè¾“å…¥ä¸­æ–­\n");
+                        clear();
                         break;
                     }
                     if (numRows != matrix.numCols)
                     {
-                        printf("\n¾ØÕóBµÄĞĞÊı²»·ûºÏÒªÇó\n");
-                        fflush(stdin);
+                        printf("\nçŸ©é˜µBçš„è¡Œæ•°ä¸ç¬¦åˆè¦æ±‚\n");
+                        clear();
                         break;
                     }
                     else
@@ -300,30 +308,30 @@ void easyCalc(void)
                             matOutput(matOut, PRECISION, WIDTH);
                             break;
                         case BREAK:
-                            printf("\nÊäÈëÖĞ¶Ï\n");
+                            printf("\nè¾“å…¥ä¸­æ–­\n");
                             break;
                         }
-                        fflush(stdin);
+                        clear();
                         matFree(&matemp);
                         matFree(&matOut);
                         break;
                     }
                     break;
                 case 2:
-                    printf("ÇëÊäÈë¾ØÕóB\n[ĞĞÊı] [ÁĞÊı] [¾ØÕó] (ÎŞĞè»»ĞĞ)\n");
-                    printf("¾ØÕóBµÄÁĞÊıĞëÎª%d\n", matrix.numRows);
-                    printf("ÊäÈëÈÎºÎ·ÇÊı×ÖÒÔÖĞ¶ÏÊäÈë\n\n");
+                    printf("è¯·è¾“å…¥çŸ©é˜µB\n[è¡Œæ•°] [åˆ—æ•°] [çŸ©é˜µ] (æ— éœ€æ¢è¡Œ)\n");
+                    printf("çŸ©é˜µBçš„åˆ—æ•°é¡»ä¸º%d\n", matrix.numRows);
+                    printf("è¾“å…¥ä»»ä½•éæ•°å­—ä»¥ä¸­æ–­è¾“å…¥\n\n");
                     ungetc(ch = getchar(), stdin);
                     if (scanf("%d%d", &numRows, &numCols) != 2)
                     {
-                        printf("\nÊäÈëÖĞ¶Ï\n");
-                        fflush(stdin);
+                        printf("\nè¾“å…¥ä¸­æ–­\n");
+                        clear();
                         break;
                     }
                     if (numCols != matrix.numRows)
                     {
-                        printf("\n¾ØÕóBµÄÁĞÊı²»·ûºÏÒªÇó\n");
-                        fflush(stdin);
+                        printf("\nçŸ©é˜µBçš„åˆ—æ•°ä¸ç¬¦åˆè¦æ±‚\n");
+                        clear();
                         break;
                     }
                     else
@@ -338,17 +346,17 @@ void easyCalc(void)
                             matOutput(matOut, PRECISION, WIDTH);
                             break;
                         case BREAK:
-                            printf("\nÊäÈëÖĞ¶Ï\n");
+                            printf("\nè¾“å…¥ä¸­æ–­\n");
                             break;
                         }
-                        fflush(stdin);
+                        clear();
                         matFree(&matemp);
                         matFree(&matOut);
                         break;
                     }
                     break;
                 default:
-                    printf("Ñ¡Ïî²»´æÔÚ\n");
+                    printf("é€‰é¡¹ä¸å­˜åœ¨\n");
                 }
                 pause();
                 break;
@@ -356,7 +364,7 @@ void easyCalc(void)
                 state = FREE;
                 break;
             default:
-                printf("Ñ¡Ïî²»´æÔÚ\n");
+                printf("é€‰é¡¹ä¸å­˜åœ¨\n");
                 pause();
             }
             break;

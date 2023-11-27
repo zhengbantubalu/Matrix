@@ -1,11 +1,11 @@
 #ifndef _MATSTDTEST_H_
 #define _MATSTDTEST_H_
 
-#include "..\..\include\MatStruct.h"
+#include "../../include/MatStruct.h"
 
 /**
- * @brief   ²âÊÔ ¨C ¾ØÕóÔËËã±ê×¼²âÊÔ
- * @param   matrix      ¾ØÕó
+ * @brief   æµ‹è¯• â€“ çŸ©é˜µè¿ç®—æ ‡å‡†æµ‹è¯•
+ * @param   matrix      çŸ©é˜µ
  */
 void matStdTest(Mat matrix);
 

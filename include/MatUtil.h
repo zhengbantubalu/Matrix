@@ -5,120 +5,120 @@
 #include <stdbool.h>
 
 /**
- * @brief   ¾ØÕó¹¤¾ß ¨C ¾ØÕó³õÊ¼»¯
- * @param   matPtr      Ö¸Ïò¾ØÕó½á¹¹ÌåµÄÖ¸Õë
- * @param   numRows     ¾ØÕóĞĞÊı
- * @param   numCols     ¾ØÕóÁĞÊı
- * @note    ÉêÇë¾ØÕóµÄ´æ´¢¿Õ¼ä£¬²¢¸³ÖµÎªÁã¾ØÕó
+ * @brief   çŸ©é˜µå·¥å…· â€“ çŸ©é˜µåˆå§‹åŒ–
+ * @param   matPtr      æŒ‡å‘çŸ©é˜µç»“æ„ä½“çš„æŒ‡é’ˆ
+ * @param   numRows     çŸ©é˜µè¡Œæ•°
+ * @param   numCols     çŸ©é˜µåˆ—æ•°
+ * @note    ç”³è¯·çŸ©é˜µçš„å­˜å‚¨ç©ºé—´ï¼Œå¹¶èµ‹å€¼ä¸ºé›¶çŸ©é˜µ
  */
 void matInit(Mat *matPtr, int numRows, int numCols);
 
 /**
- * @brief   ¾ØÕó¹¤¾ß ¨C ¾ØÕó´æ´¢¿Õ¼äÊÍ·Å
- * @param   matPtr      Ö¸Ïò¾ØÕó½á¹¹ÌåµÄÖ¸Õë
- * @note    ÊÍ·Å¾ØÕóµÄ´æ´¢¿Õ¼ä
+ * @brief   çŸ©é˜µå·¥å…· â€“ çŸ©é˜µå­˜å‚¨ç©ºé—´é‡Šæ”¾
+ * @param   matPtr      æŒ‡å‘çŸ©é˜µç»“æ„ä½“çš„æŒ‡é’ˆ
+ * @note    é‡Šæ”¾çŸ©é˜µçš„å­˜å‚¨ç©ºé—´
  */
 void matFree(Mat *matPtr);
 
 /**
- * @brief   ¾ØÕó¹¤¾ß ¨C ¸³ÖµÎªµ¥Î»¾ØÕó
- * @param   matrix      ¾ØÕó
- * @param   numRows     ¾ØÕóĞĞÊı
- * @return  SUCCESS ¨C ¸³Öµ³É¹¦
- * @return  ERROR ¨C ¾ØÕóĞĞÁĞÊı²»Âú×ãÒªÇó
- * @note    ½«¾ØÕómatrix¸³ÖµÎªµ¥Î»¾ØÕó£¬¾ØÕóĞëÎª·½Õó
+ * @brief   çŸ©é˜µå·¥å…· â€“ èµ‹å€¼ä¸ºå•ä½çŸ©é˜µ
+ * @param   matrix      çŸ©é˜µ
+ * @param   numRows     çŸ©é˜µè¡Œæ•°
+ * @return  SUCCESS â€“ èµ‹å€¼æˆåŠŸ
+ * @return  ERROR â€“ çŸ©é˜µè¡Œåˆ—æ•°ä¸æ»¡è¶³è¦æ±‚
+ * @note    å°†çŸ©é˜µmatrixèµ‹å€¼ä¸ºå•ä½çŸ©é˜µï¼ŒçŸ©é˜µé¡»ä¸ºæ–¹é˜µ
  */
 int matSetE(Mat matrix);
 
 /**
- * @brief   ¾ØÕó¹¤¾ß ¨C ¾Ö²¿¸³ÖµÎªµ¥Î»¾ØÕó
- * @param   matData     Ö¸Ïò¾ØÕóÊı¾İµÄÖ¸Õë
- * @param   rowStart    ÆğÊ¼ĞĞ
- * @param   rowEnd      ÖÕÖ¹ĞĞ
- * @param   colStart    ÆğÊ¼ÁĞ
- * @param   colEnd      ÖÕÖ¹ÁĞ
- * @return  SUCCESS ¨C ¸³Öµ³É¹¦
- * @return  ERROR ¨C ·¶Î§ĞĞÁĞÊı²»ÏàµÈ
- * @note    ½«¾ØÕóµÄÖ¸¶¨·¶Î§¸³ÖµÎªµ¥Î»¾ØÕó£¬·¶Î§ĞĞÁĞÊıĞëÏàµÈ
+ * @brief   çŸ©é˜µå·¥å…· â€“ å±€éƒ¨èµ‹å€¼ä¸ºå•ä½çŸ©é˜µ
+ * @param   matData     æŒ‡å‘çŸ©é˜µæ•°æ®çš„æŒ‡é’ˆ
+ * @param   rowStart    èµ·å§‹è¡Œ
+ * @param   rowEnd      ç»ˆæ­¢è¡Œ
+ * @param   colStart    èµ·å§‹åˆ—
+ * @param   colEnd      ç»ˆæ­¢åˆ—
+ * @return  SUCCESS â€“ èµ‹å€¼æˆåŠŸ
+ * @return  ERROR â€“ èŒƒå›´è¡Œåˆ—æ•°ä¸ç›¸ç­‰
+ * @note    å°†çŸ©é˜µçš„æŒ‡å®šèŒƒå›´èµ‹å€¼ä¸ºå•ä½çŸ©é˜µï¼ŒèŒƒå›´è¡Œåˆ—æ•°é¡»ç›¸ç­‰
  */
 void matSetELocal(double **matData, int rowStart, int rowEnd, int colStart, int colEnd);
 
 /**
- * @brief   ¾ØÕó¹¤¾ß ¨C Êı×é¸³Öµ¾ØÕó
- * @param   matrix      ¾ØÕó
- * @param   arr         Ö¸ÏòÊı×éÊ×ÔªËØµÄÖ¸Õë£¬Êı×éÔªËØĞëÎªdoubleÀàĞÍ
- * @param   sizeofArr   Êı×éËùÕ¼¿Õ¼ä£¬Çë´«Èësizeof(arr)£¬arrÊÇÊı×éÃû
- * @return  SUCCESS ¨C ¸³Öµ³É¹¦
- * @return  ERROR ¨C Êı×éÓë¾ØÕóÔªËØÊı²»ÏàµÈ
- * @note    ½«Ò»Î¬doubleÊı×éÒÔ´Ó×óÍùÓÒ£¬´ÓÉÏÍùÏÂµÄË³Ğò¸³Öµ¸ø¾ØÕó£¬Êı×éÓë¾ØÕóÔªËØÊıĞëÏàµÈ
+ * @brief   çŸ©é˜µå·¥å…· â€“ æ•°ç»„èµ‹å€¼çŸ©é˜µ
+ * @param   matrix      çŸ©é˜µ
+ * @param   arr         æŒ‡å‘æ•°ç»„é¦–å…ƒç´ çš„æŒ‡é’ˆï¼Œæ•°ç»„å…ƒç´ é¡»ä¸ºdoubleç±»å‹
+ * @param   sizeofArr   æ•°ç»„æ‰€å ç©ºé—´ï¼Œè¯·ä¼ å…¥sizeof(arr)ï¼Œarræ˜¯æ•°ç»„å
+ * @return  SUCCESS â€“ èµ‹å€¼æˆåŠŸ
+ * @return  ERROR â€“ æ•°ç»„ä¸çŸ©é˜µå…ƒç´ æ•°ä¸ç›¸ç­‰
+ * @note    å°†ä¸€ç»´doubleæ•°ç»„ä»¥ä»å·¦å¾€å³ï¼Œä»ä¸Šå¾€ä¸‹çš„é¡ºåºèµ‹å€¼ç»™çŸ©é˜µï¼Œæ•°ç»„ä¸çŸ©é˜µå…ƒç´ æ•°é¡»ç›¸ç­‰
  */
 int matSetArr(Mat matrix, double *arr, int sizeofArr);
 
 /**
- * @brief   ¾ØÕó¹¤¾ß ¨C ¾ØÕó¸´ÖÆ
- * @param   source      Ô´¾ØÕó
- * @param   target      Ä¿±ê¾ØÕó
- * @return  SUCCESS ¨C ¸´ÖÆ³É¹¦
- * @return  ERROR ¨C ¾ØÕóĞĞÁĞÊı²»Âú×ãÒªÇó
- * @note    ½«¾ØÕósource¸´ÖÆµ½¾ØÕótarget£¬Ô´¾ØÕóÓëÄ¿±ê¾ØÕóĞëÍ¬ĞÍ
+ * @brief   çŸ©é˜µå·¥å…· â€“ çŸ©é˜µå¤åˆ¶
+ * @param   source      æºçŸ©é˜µ
+ * @param   target      ç›®æ ‡çŸ©é˜µ
+ * @return  SUCCESS â€“ å¤åˆ¶æˆåŠŸ
+ * @return  ERROR â€“ çŸ©é˜µè¡Œåˆ—æ•°ä¸æ»¡è¶³è¦æ±‚
+ * @note    å°†çŸ©é˜µsourceå¤åˆ¶åˆ°çŸ©é˜µtargetï¼ŒæºçŸ©é˜µä¸ç›®æ ‡çŸ©é˜µé¡»åŒå‹
  */
 int matCopy(Mat source, Mat target);
 
 /**
- * @brief   ¾ØÕó¹¤¾ß ¨C ¾ØÕó¾Ö²¿¸´ÖÆ
- * @param   srcData     Ö¸ÏòÔ´¾ØÕóÊı¾İµÄÖ¸Õë
- * @param   tgtData     Ö¸ÏòÄ¿±ê¾ØÕóÊı¾İµÄÖ¸Õë
- * @param   rowSrcSt    Ô´¾ØÕóÆğÊ¼ĞĞ
- * @param   rowSrcEd    Ô´¾ØÕóÖÕÖ¹ĞĞ
- * @param   rowTarSt    Ä¿±ê¾ØÕóÆğÊ¼ĞĞ
- * @param   rowTarEd    Ä¿±ê¾ØÕóÖÕÖ¹ĞĞ
- * @param   colSrcSt    Ô´¾ØÕóÆğÊ¼ÁĞ
- * @param   colSrcEd    Ô´¾ØÕóÖÕÖ¹ÁĞ
- * @param   colTarSt    Ä¿±ê¾ØÕóÆğÊ¼ÁĞ
- * @param   colTarEd    Ä¿±ê¾ØÕóÖÕÖ¹ÁĞ
- * @return  SUCCESS ¨C ¸´ÖÆ³É¹¦
- * @return  ERROR ¨C Ö¸¶¨·¶Î§ĞĞÁĞÊı²»ÏàµÈ
- * @note    ½«Ô´¾ØÕóµÄÖ¸¶¨·¶Î§¸´ÖÆµ½Ä¿±ê¾ØÕóµÄÖ¸¶¨·¶Î§£¬Á½¾ØÕóÖ¸¶¨·¶Î§µÄĞĞÁĞÊıĞëÏàµÈ
+ * @brief   çŸ©é˜µå·¥å…· â€“ çŸ©é˜µå±€éƒ¨å¤åˆ¶
+ * @param   srcData     æŒ‡å‘æºçŸ©é˜µæ•°æ®çš„æŒ‡é’ˆ
+ * @param   tgtData     æŒ‡å‘ç›®æ ‡çŸ©é˜µæ•°æ®çš„æŒ‡é’ˆ
+ * @param   rowSrcSt    æºçŸ©é˜µèµ·å§‹è¡Œ
+ * @param   rowSrcEd    æºçŸ©é˜µç»ˆæ­¢è¡Œ
+ * @param   rowTarSt    ç›®æ ‡çŸ©é˜µèµ·å§‹è¡Œ
+ * @param   rowTarEd    ç›®æ ‡çŸ©é˜µç»ˆæ­¢è¡Œ
+ * @param   colSrcSt    æºçŸ©é˜µèµ·å§‹åˆ—
+ * @param   colSrcEd    æºçŸ©é˜µç»ˆæ­¢åˆ—
+ * @param   colTarSt    ç›®æ ‡çŸ©é˜µèµ·å§‹åˆ—
+ * @param   colTarEd    ç›®æ ‡çŸ©é˜µç»ˆæ­¢åˆ—
+ * @return  SUCCESS â€“ å¤åˆ¶æˆåŠŸ
+ * @return  ERROR â€“ æŒ‡å®šèŒƒå›´è¡Œåˆ—æ•°ä¸ç›¸ç­‰
+ * @note    å°†æºçŸ©é˜µçš„æŒ‡å®šèŒƒå›´å¤åˆ¶åˆ°ç›®æ ‡çŸ©é˜µçš„æŒ‡å®šèŒƒå›´ï¼Œä¸¤çŸ©é˜µæŒ‡å®šèŒƒå›´çš„è¡Œåˆ—æ•°é¡»ç›¸ç­‰
  */
 int matCpLocal(double **srcData, double **tgtData,
                int rowSrcSt, int rowSrcEd, int rowTgtSt, int rowTgtEd,
                int colSrcSt, int colSrcEd, int colTarSt, int colTarEd);
 
 /**
- * @brief   ¾ØÕó¹¤¾ß ¨C ¾ØÕóÍ¬ĞÍÅĞ¶Ï
- * @param   matrix1     ¾ØÕó1
- * @param   matrix2     ¾ØÕó2
- * @return  ture ¨C Í¬ĞÍ
- * @return  false ¨C ²»Í¬ĞÍ
- * @note    ÅĞ¶Ï¾ØÕómatrix1Óë¾ØÕómatrix2ÊÇ·ñÍ¬ĞÍ£¬¼´ÊÇ·ñĞĞÊıÏàµÈÇÒÁĞÊıÏàµÈ
+ * @brief   çŸ©é˜µå·¥å…· â€“ çŸ©é˜µåŒå‹åˆ¤æ–­
+ * @param   matrix1     çŸ©é˜µ1
+ * @param   matrix2     çŸ©é˜µ2
+ * @return  ture â€“ åŒå‹
+ * @return  false â€“ ä¸åŒå‹
+ * @note    åˆ¤æ–­çŸ©é˜µmatrix1ä¸çŸ©é˜µmatrix2æ˜¯å¦åŒå‹ï¼Œå³æ˜¯å¦è¡Œæ•°ç›¸ç­‰ä¸”åˆ—æ•°ç›¸ç­‰
  */
 bool matSameDim(Mat matrix1, Mat matrix2);
 
 /**
- * @brief   ¾ØÕó¹¤¾ß ¨C ¾ØÕóÏàµÈÅĞ¶Ï
- * @param   matrix1     ¾ØÕó1
- * @param   matrix2     ¾ØÕó2
- * @return  ture ¨C ÏàµÈ
- * @return  false ¨C ²»ÏàµÈ
- * @note    ÅĞ¶Ï¾ØÕómatrix1Óë¾ØÕómatrix2ÊÇ·ñÏàµÈ£¬Á½¾ØÕóĞëÍ¬ĞÍ
+ * @brief   çŸ©é˜µå·¥å…· â€“ çŸ©é˜µç›¸ç­‰åˆ¤æ–­
+ * @param   matrix1     çŸ©é˜µ1
+ * @param   matrix2     çŸ©é˜µ2
+ * @return  ture â€“ ç›¸ç­‰
+ * @return  false â€“ ä¸ç›¸ç­‰
+ * @note    åˆ¤æ–­çŸ©é˜µmatrix1ä¸çŸ©é˜µmatrix2æ˜¯å¦ç›¸ç­‰ï¼Œä¸¤çŸ©é˜µé¡»åŒå‹
  */
 bool matEqual(Mat matrix1, Mat matrix2);
 
 /**
- * @brief   ¾ØÕó¹¤¾ß ¨C ¾ØÕó¾Ö²¿ÏàµÈÅĞ¶Ï
- * @param   matData1    Ö¸Ïò¾ØÕó1Êı¾İµÄÖ¸Õë
- * @param   matData2    Ö¸Ïò¾ØÕó2Êı¾İµÄÖ¸Õë
- * @param   rowSt1      ¾ØÕó1ÆğÊ¼ĞĞ
- * @param   rowEd1      ¾ØÕó1ÖÕÖ¹ĞĞ
- * @param   rowSt2      ¾ØÕó2ÆğÊ¼ĞĞ
- * @param   rowEd2      ¾ØÕó2ÖÕÖ¹ĞĞ
- * @param   colSt1      ¾ØÕó1ÆğÊ¼ÁĞ
- * @param   colEd1      ¾ØÕó1ÖÕÖ¹ÁĞ
- * @param   colSt2      ¾ØÕó2ÆğÊ¼ÁĞ
- * @param   colEd2      ¾ØÕó2ÖÕÖ¹ÁĞ
- * @return  true ¨C ÏàµÈ
- * @return  false ¨C ²»ÏàµÈ
- * @note    ÅĞ¶Ï¾ØÕómatrix1Óë¾ØÕómatrix2Ö¸¶¨·¶Î§ÊÇ·ñÏàµÈ£¬Á½¾ØÕó·¶Î§ĞĞÁĞÊıĞëÏàµÈ
+ * @brief   çŸ©é˜µå·¥å…· â€“ çŸ©é˜µå±€éƒ¨ç›¸ç­‰åˆ¤æ–­
+ * @param   matData1    æŒ‡å‘çŸ©é˜µ1æ•°æ®çš„æŒ‡é’ˆ
+ * @param   matData2    æŒ‡å‘çŸ©é˜µ2æ•°æ®çš„æŒ‡é’ˆ
+ * @param   rowSt1      çŸ©é˜µ1èµ·å§‹è¡Œ
+ * @param   rowEd1      çŸ©é˜µ1ç»ˆæ­¢è¡Œ
+ * @param   rowSt2      çŸ©é˜µ2èµ·å§‹è¡Œ
+ * @param   rowEd2      çŸ©é˜µ2ç»ˆæ­¢è¡Œ
+ * @param   colSt1      çŸ©é˜µ1èµ·å§‹åˆ—
+ * @param   colEd1      çŸ©é˜µ1ç»ˆæ­¢åˆ—
+ * @param   colSt2      çŸ©é˜µ2èµ·å§‹åˆ—
+ * @param   colEd2      çŸ©é˜µ2ç»ˆæ­¢åˆ—
+ * @return  true â€“ ç›¸ç­‰
+ * @return  false â€“ ä¸ç›¸ç­‰
+ * @note    åˆ¤æ–­çŸ©é˜µmatrix1ä¸çŸ©é˜µmatrix2æŒ‡å®šèŒƒå›´æ˜¯å¦ç›¸ç­‰ï¼Œä¸¤çŸ©é˜µèŒƒå›´è¡Œåˆ—æ•°é¡»ç›¸ç­‰
  */
 bool matEqLocal(double **matData1, double **matData2,
                 int rowSt1, int rowEd1, int rowSt2, int rowEd2,

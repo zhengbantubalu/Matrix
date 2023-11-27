@@ -1,5 +1,5 @@
-#include "..\include\MatUtil.h"
-#include "..\include\MatConst.h"
+#include "../include/MatUtil.h"
+#include "../include/MatConst.h"
 #include <stdlib.h>
 
 void matInit(Mat *matPtr, int numRows, int numCols)
