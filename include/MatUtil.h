@@ -1,3 +1,8 @@
+/**
+ * @file    MatUtil.h
+ * @brief   矩阵工具
+ */
+
 #ifndef _MATUTIL_H_
 #define _MATUTIL_H_
 
@@ -5,7 +10,7 @@
 #include <stdbool.h>
 
 /**
- * @brief   矩阵工具 – 矩阵初始化
+ * @brief   矩阵工具 – 初始化矩阵
  * @param   matPtr      指向矩阵结构体的指针
  * @param   numRows     矩阵行数
  * @param   numCols     矩阵列数
@@ -14,7 +19,7 @@
 void matInit(Mat *matPtr, int numRows, int numCols);
 
 /**
- * @brief   矩阵工具 – 矩阵存储空间释放
+ * @brief   矩阵工具 – 释放矩阵存储空间
  * @param   matPtr      指向矩阵结构体的指针
  * @note    释放矩阵的存储空间
  */

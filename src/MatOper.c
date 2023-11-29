@@ -1,3 +1,8 @@
+/**
+ * @file    MatOper.c
+ * @brief   矩阵运算
+ */
+
 #include "../include/MatOper.h"
 #include "../include/MatEleTrans.h"
 #include "../include/MatUtil.h"
@@ -5,7 +10,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-int matData(Mat source1, Mat source2, Mat target)
+int matAdd(Mat source1, Mat source2, Mat target)
 {
     int i = 0, j = 0;
     if (matSameDim(source1, source2) && matSameDim(source1, target))

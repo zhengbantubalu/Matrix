@@ -1,3 +1,8 @@
+/**
+ * @file    MatEleTrans.c
+ * @brief   矩阵初等变换
+ */
+
 #include "../include/MatEleTrans.h"
 #include <stdlib.h>
 

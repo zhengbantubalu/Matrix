@@ -1,3 +1,8 @@
+/**
+ * @file    MatEleTrans.h
+ * @brief   矩阵初等变换
+ */
+
 #ifndef _MATELETRANS_H_
 #define _MATELETRANS_H_
 

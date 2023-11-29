@@ -1,3 +1,8 @@
+/**
+ * @file    MatOper.h
+ * @brief   矩阵运算
+ */
+
 #ifndef _MATOPER_H_
 #define _MATOPER_H_
 
@@ -13,7 +18,7 @@
  * @return  ERROR – 矩阵行列数不满足要求
  * @note    将矩阵source1与矩阵source2的和赋值给矩阵target，三矩阵须同型
  */
-int matData(Mat source1, Mat source2, Mat target);
+int matAdd(Mat source1, Mat source2, Mat target);
 
 /**
  * @brief   矩阵运算 – 矩阵减法
@@ -55,7 +60,8 @@ int matMulti(Mat sourceL, Mat sourceR, Mat target);
  * @param   target      目标矩阵
  * @return  SUCCESS – 计算成功
  * @return  ERROR – 矩阵行列数不满足要求
- * @note    将矩阵source的转置矩阵赋值给矩阵target，source的行数须等于target的列数，source的列数须等于target的行数
+ * @note    将矩阵source的转置矩阵赋值给矩阵target，
+ *          source的行数须等于target的列数，source的列数须等于target的行数
  */
 int matTrans(Mat source, Mat target);
 
@@ -87,7 +93,8 @@ int matAdjo(Mat source, Mat target);
  * @param   deterPtr    指向行列式的指针，若不需要请传入NULL
  * @return  SUCCESS – 计算成功
  * @return  ERROR – 矩阵行列数不满足要求
- * @note    将矩阵source的行阶梯形矩阵赋值给矩阵target，将矩阵source的行列式赋值给*deterPtr，两矩阵须同型
+ * @note    将矩阵source通过初等行变换化成行阶梯形，赋值给矩阵target，两矩阵须同型
+ * @note    将矩阵source的行列式赋值给*deterPtr
  */
 int matEche(Mat source, Mat target, double *deterPtr);
 
@@ -98,7 +105,7 @@ int matEche(Mat source, Mat target, double *deterPtr);
  * @param   isEche      source是否为行阶梯形矩阵
  * @return  SUCCESS – 计算成功
  * @return  ERROR – 矩阵行列数不满足要求
- * @note    将矩阵source的行最简形矩阵赋值给矩阵target，两矩阵须同型
+ * @note    将矩阵source通过初等行变换化成行最简形，赋值给矩阵target，两矩阵须同型
  */
 int matRedEche(Mat source, Mat target, bool isEche);
 

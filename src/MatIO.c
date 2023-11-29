@@ -1,3 +1,8 @@
+/**
+ * @file    MatIO.c
+ * @brief   矩阵输入输出
+ */
+
 #include "../include/MatIO.h"
 #include "../include/MatConst.h"
 #include <stdio.h>

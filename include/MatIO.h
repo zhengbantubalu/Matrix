@@ -1,3 +1,8 @@
+/**
+ * @file    MatIO.h
+ * @brief   矩阵输入输出
+ */
+
 #ifndef _MATIO_H_
 #define _MATIO_H_
 

@@ -1,3 +1,8 @@
+/**
+ * @file    MatStdTest.c
+ * @brief   测试 – 矩阵运算标准测试
+ */
+
 #include "./include/MatStdTest.h"
 #include "../include/MatOper.h"
 #include "../include/MatUtil.h"
@@ -34,7 +39,7 @@ void matStdTest(Mat matrix)
     matOutput(matTra, PRECISION, WIDTH);
     if (matrix.numRows == matrix.numCols)
     {
-        matData(matrix, matTra, matOut);
+        matAdd(matrix, matTra, matOut);
         printf("\n原矩阵加转置矩阵:\n");
         matOutput(matOut, PRECISION, WIDTH);
         matSub(matrix, matTra, matOut);

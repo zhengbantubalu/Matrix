@@ -1,3 +1,8 @@
+/**
+ * @file    MatUtil.c
+ * @brief   矩阵工具
+ */
+
 #include "../include/MatUtil.h"
 #include "../include/MatConst.h"
 #include <stdlib.h>
