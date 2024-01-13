@@ -9,7 +9,7 @@
 #include "../include/MatIO.h"     //矩阵局部输入、浮点数输出
 #include "../include/MatStruct.h" //矩阵结构体
 #include "../include/MatConst.h"  //零阈值、浮点数输出参数、函数返回状态码
-#include <stdio.h>                //scanf,printf,getchar,putchar
+#include <stdio.h>                //scanf,printf,getchar,putchar,ungetc
 #include <stdlib.h>               //malloc
 #include <stdbool.h>              //bool,ture,false
 #include <math.h>                 //fabs
@@ -24,7 +24,7 @@ void static clear(void)
 // 暂停
 void static pause(void)
 {
-    ungetc('0', stdin);
+    ungetc('\n', stdin);
     printf("\n按回车键继续...");
     getchar();
     clear();

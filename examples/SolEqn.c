@@ -24,7 +24,7 @@ void static clear(void)
 // 暂停
 void static pause(void)
 {
-    ungetc('0', stdin);
+    ungetc('\n', stdin);
     printf("\n按回车键继续...");
     getchar();
     clear();
@@ -168,7 +168,7 @@ void solEqn(void)
         {
             printf("基础解系:\n");
         }
-        for (i = pivot[0], j = 0, m = 1; i < numCols - 1; i++)
+        for (i = 0, j = 0, m = 1; i < numCols - 1; i++)
         {
             if (j == rankCof || pivot[j] != i)
             {
@@ -179,6 +179,11 @@ void solEqn(void)
                     prtDouble(-matrix.data[0][i], PRECISION, WIDTH, false);
                     putchar(' ');
                     l++;
+                }
+                else if (i == 0)
+                {
+                    prtDouble(1, 0, WIDTH, false);
+                    putchar(' ');
                 }
                 else
                 {
